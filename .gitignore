@@ -32,4 +32,7 @@
 *.tdo
 
 # Output files
+*.dat
+
+# Compiled files
 *.out
