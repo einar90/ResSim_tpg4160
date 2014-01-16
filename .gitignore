@@ -30,3 +30,9 @@
 *.vrb
 *.xdy
 *.tdo
+
+# Output files
+*output*
+*Output*
+*out*
+*Out
