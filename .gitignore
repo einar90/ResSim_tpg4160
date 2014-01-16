@@ -36,3 +36,6 @@
 
 # Compiled files
 *.out
+
+# Outdated files
+*.old
