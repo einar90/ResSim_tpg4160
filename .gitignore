@@ -32,7 +32,4 @@
 *.tdo
 
 # Output files
-*output*
-*Output*
-*out*
-*Out
+*.out
