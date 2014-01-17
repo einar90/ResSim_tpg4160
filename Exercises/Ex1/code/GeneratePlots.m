@@ -35,16 +35,16 @@ title('Case 2: Explicit, dt towards unstable');
 hold on;
 
 plot(EXP250(1,:),'color','red');
-plot(EXP250(length(EXP250),:),'color','red')
+plot(EXP250(size(EXP250)(1),:),'color','red')
 
 plot(EXP500(1,:),'color','green');
-plot(EXP500(length(EXP500),:),'color','green')
+plot(EXP500(size(EXP500)(1),:),'color','green')
 
 plot(EXP750(1,:),'color','blue');
-plot(EXP750(length(EXP750),:),'color','blue')
+plot(EXP750(size(EXP750)(1),:),'color','blue')
 
 plot(EXP1000(1,:),'color','black');
-plot(EXP1000(length(EXP1000),:),'color','black')
+plot(EXP1000(size(EXP1000)(1),:),'color','black')
 
 
 
@@ -86,10 +86,18 @@ title('Case 4: Implicit, increasing time steps');
 hold on;
 
 plot(IMP500(1,:),'color','red');
-plot(IMP500(length(IMP500),:),'color','red')
+plot(IMP500(size(IMP500)(1),:),'color','red')
 
 plot(IMP5000(1,:),'color','green');
-plot(IMP5000(length(IMP5000),:),'color','green')
+plot(IMP5000(size(IMP5000)(1),:),'color','green')
 
 plot(IMP50000(1,:),'color','blue');
-plot(IMP50000(length(IMP50000),:),'color','blue')
+plot(IMP50000(size(IMP50000)(1),:),'color','blue')
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CASE 5                                             %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
