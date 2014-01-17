@@ -39,3 +39,7 @@
 
 # Outdated files
 *.old
+
+# Octave
+
+octave-*
