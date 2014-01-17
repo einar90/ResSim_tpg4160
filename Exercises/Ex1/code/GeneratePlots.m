@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CASE 1                                             %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ANL250 = load("250µ_ANL.dat");
+
+figure(1);
+title('Case 1: Analytic, dt=250micro');
+hold on;
+plot(ANL250(1,:));
+plot(ANL250(5,:));
+plot(ANL250(10,:));
+plot(ANL250(25,:));
+plot(ANL250(50,:));
+plot(ANL250(100,:));
+plot(ANL250(200,:));
+plot(ANL250(400,:));
+plot(ANL250(600,:));
+plot(ANL250(800,:));
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CASE 2                                             %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+EXP250 = load("250µ_EXP.dat");
+EXP500 = load("500µ_EXP.dat");
+EXP750 = load("750µ_EXP.dat");
+EXP1000 = load("1000µ_EXP.dat");
+%EXP1250  % Unstable
+
+figure(2);
+title('Case 2: Explicit, dt towards unstable');
+hold on;
+plot(EXP250(1,:),'color','red');
+plot(EXP250(length(EXP250),:),'color','red')
+plot(EXP500(1,:),'color','green');
+plot(EXP500(length(EXP500),:),'color','green')
+plot(EXP750(1,:),'color','blue');
+plot(EXP750(length(EXP750),:),'color','blue')
+plot(EXP1000(1,:),'color','black');
+plot(EXP1000(length(EXP1000),:),'color','black')
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CASE 3                                             %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Stability criterion function
+stability_criterion = inline("x^2*0.5 * 0.2*1.0*10^(-4)/1.0 ");
+
+% DT values
+DT = [0.00025 0.0005 0.00075 0.001 0.00125];
+
+for i = DT
+  printf('DT = %e', DT(i))
+  printf('Criterion: %e\n', stability_criterion(DT(i)));
+  printf('Holds=%i', (DT(i)<=stability_criterion(DT(i))))
+end
