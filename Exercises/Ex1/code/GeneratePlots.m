@@ -52,13 +52,23 @@ plot(EXP1000(length(EXP1000),:),'color','black')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Stability criterion function
-stability_criterion = inline("x^2*0.5 * 0.2*1.0*10^(-4)/1.0 ");
+stability_criterion = 100 * 0.5 * 0.2*1.0*10^(-4) / 1.0;
 
 % DT values
 DT = [0.00025 0.0005 0.00075 0.001 0.00125];
 
-for i = DT
-  printf('DT = %e', DT(i))
-  printf('Criterion: %e\n', stability_criterion(DT(i)));
-  printf('Holds=%i', (DT(i)<=stability_criterion(DT(i))))
+for i = [1:length(DT)]
+  printf('DT = %e\n', DT(i))
+  printf('Criterion: %e\n', stability_criterion);
+  printf('Holds=%i\n\n', (DT(i) <= stability_criterion))
 end
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CASE 4                                             %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
