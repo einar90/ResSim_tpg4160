@@ -13,7 +13,7 @@ ylabel('P');
 for i = [1 5 10 25 50 100 200 400 600 800]
   plot(ANL250(i,:),   'color', 'black');
 end
-print -color case1.png
+print -color "-S750,500" case1.png
 
 
 
@@ -55,7 +55,7 @@ h = legend({'DT = 0.00025',
             ''});
 set (h, 'location', 'southeast');
 
-print -color case2.png
+print -color "-S750,500" case2.png
 
 
 
@@ -115,7 +115,7 @@ l = legend({'DT = 0.0005',
             ''});
 set (l, 'location', 'southeast');
 
-print -color case4.png
+print -color "-S750,500" case4.png
 
 
 
@@ -148,7 +148,7 @@ l = legend({'Explicit, DT = 0.0005',
             'Analytical, DT = 0.00025' });
 set (l, 'location', 'southeast');
 
-print -color case5.png
+print -color "-S750,500" case5.png
 
 
 
@@ -165,7 +165,7 @@ ylabel('P');
 for i = [1 3 5 7 10 15 20 30 100 400]
   plot(EXP500(i,:), 'color', 'black');
 end
-print -color case61.png
+print -color "-S750,500" case61.png
 
 
 figure(6);
@@ -176,7 +176,7 @@ ylabel('P');
 for i = [1 2 3 4 5 6 7 10 15 41]
   plot(IMP5000(i,:), 'color', 'black');
 end
-print -color case62.png
+print -color "-S750,500" case62.png
 
 figure(7);
 xlabel('x');
@@ -186,4 +186,4 @@ hold on;
 for i = [1 3 5 10 15 20 30 100 400 800]
   plot(ANL250(i,:), 'color', 'black');
 end
-print -color case63.png
+print -color "-S750,500" case63.png 
