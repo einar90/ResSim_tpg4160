@@ -1,22 +1,19 @@
+clc; clear all; %close all;
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% CASE 1                                             %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-ANL250 = load("250µ_ANL.dat");
+ANL250 = load('250µ_ANL.dat');
 
 figure(1);
 title('Case 1: Analytic, dt=250micro');
 hold on;
-plot(ANL250(1,:));
-plot(ANL250(5,:));
-plot(ANL250(10,:));
-plot(ANL250(25,:));
-plot(ANL250(50,:));
-plot(ANL250(100,:));
-plot(ANL250(200,:));
-plot(ANL250(400,:));
-plot(ANL250(600,:));
-plot(ANL250(800,:));
-
+xlabel('x');
+ylabel('P');
+for i = [1 5 10 25 50 100 200 400 600 800]
+  plot(ANL250(i,:),   'color', 'black');
+end
+print -color case1.png
 
 
 
@@ -31,8 +28,10 @@ EXP1000 = load('1000µ_EXP.dat');
 %EXP1250  % Unstable
 
 figure(2);
-title('Case 2: Explicit, dt towards unstable');
+title('Case 2: Explicit, dt towards unstable, first and last t-value');
 hold on;
+xlabel('x');
+ylabel('P');
 
 plot(EXP250(1,:),'color','red');
 plot(EXP250(size(EXP250)(1),:),'color','red')
@@ -46,6 +45,17 @@ plot(EXP750(size(EXP750)(1),:),'color','blue')
 plot(EXP1000(1,:),'color','black');
 plot(EXP1000(size(EXP1000)(1),:),'color','black')
 
+h = legend({'DT = 0.00025', 
+            '', 
+            'DT = 0.0005',  
+            '',
+            'DT = 0.00075', 
+            '',
+            'DT = 0.001',   
+            ''});
+set (h, 'location', 'southeast');
+
+print -color case2.png
 
 
 
@@ -73,6 +83,7 @@ end
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% CASE 4                                             %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,8 +93,10 @@ IMP5000  = load('5000µ_IMP.dat');
 IMP50000 = load('50000µ_IMP.dat');
 
 figure(3);
-title('Case 4: Implicit, increasing time steps');
+title('Case 4: Implicit, increasing time steps, first and last t-value');
 hold on;
+xlabel('x');
+ylabel('P');
 
 plot(IMP500(1,:),'color','red');
 plot(IMP500(size(IMP500)(1),:),'color','red')
@@ -94,6 +107,15 @@ plot(IMP5000(size(IMP5000)(1),:),'color','green')
 plot(IMP50000(1,:),'color','blue');
 plot(IMP50000(size(IMP50000)(1),:),'color','blue')
 
+l = legend({'DT = 0.0005', 
+            '', 
+            'DT = 0.005',  
+            '',
+            'DT = 0.05', 
+            ''});
+set (l, 'location', 'southeast');
+
+print -color case4.png
 
 
 
@@ -101,3 +123,67 @@ plot(IMP50000(size(IMP50000)(1),:),'color','blue')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% CASE 5                                             %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+EXP500  = load('500µ_EXP.dat');
+EXP500_time = 0:0.0005:0.2;
+
+IMP5000 = load('5000µ_IMP.dat');
+IMP5000_time = 0:0.005:0.2;
+
+ANL250  = load('250µ_ANL.dat');
+ANL250_time = 0:0.00025:0.2;
+
+figure(4);
+title('Case 5: Pressure vs. time in block 5');
+hold on;
+xlabel('t');
+ylabel('P');
+
+plot(EXP500_time,  EXP500(:,5), 'color', 'red');
+plot(IMP5000_time, IMP5000(:,5),'color', 'blue');
+plot(ANL250_time,  ANL250(:,5), 'color', 'green');
+
+l = legend({'Explicit, DT = 0.0005', 
+            'Implicit, DT = 0.005',  
+            'Analytical, DT = 0.00025' });
+set (l, 'location', 'southeast');
+
+print -color case5.png
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CASE 6                                             %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+figure(5);
+title('Case 6: Pressure vs. x, EXP500');
+hold on;
+xlabel('x');
+ylabel('P');
+for i = [1 3 5 7 10 15 20 30 100 400]
+  plot(EXP500(i,:), 'color', 'black');
+end
+print -color case61.png
+
+
+figure(6);
+title('Case 6: Pressure vs. x, IMP5000');
+hold on;
+xlabel('x');
+ylabel('P');
+for i = [1 2 3 4 5 6 7 10 15 41]
+  plot(IMP5000(i,:), 'color', 'black');
+end
+print -color case62.png
+
+figure(7);
+xlabel('x');
+ylabel('P');
+title('Case 6: Pressure vs. x, ANL250');
+hold on;
+for i = [1 3 5 10 15 20 30 100 400 800]
+  plot(ANL250(i,:), 'color', 'black');
+end
+print -color case63.png
