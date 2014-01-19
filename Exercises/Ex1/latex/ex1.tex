@@ -11,7 +11,9 @@
 \usepackage{graphicx}
 \usepackage{booktabs} 
 \usepackage{subfig}  
-%\usepackage[bf, hang, small]{caption} 
+
+\usepackage{caption}
+\captionsetup{margin=10pt,font=small,labelfont=bf}
 
 \usepackage{sectsty}
 \allsectionsfont{\normalfont\sffamily}
@@ -67,20 +69,55 @@ this is a test. \texttt{monospace test}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.85\textwidth]{../code/case1.png}
+  \includegraphics[]{../code/case1.png}
   \caption{Case 1.}
   \label{fig:case1}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.85\textwidth]{../code/case2.png}
+  \includegraphics[]{../code/case2.png}
   \caption{Case 2.}
   \label{fig:case2}
 \end{figure}
 
-% subsection plots (end)
+\begin{figure}[H]
+  \centering
+  \includegraphics[]{../code/case4.png}
+  \caption{Case 4.}
+  \label{fig:case4}
+\end{figure}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[]{../code/case5.png}
+  \caption{Case 5.}
+  \label{fig:case5}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[]{../code/case61.png}
+  \caption{Case 6, explicit solution.}
+  \label{fig:case61}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[]{../code/case62.png}
+  \caption{Case 6, implicit solution.}
+  \label{fig:case62}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[]{../code/case63.png}
+  \caption{Case 6, analytical solution.}
+  \label{fig:case63}
+\end{figure}
+
+% subsection plots (end)
+\pagebreak
 
 \subsection{Listings} % (fold)
 \label{sub:listings}
