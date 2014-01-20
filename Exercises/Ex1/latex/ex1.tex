@@ -1,63 +1,29 @@
-\documentclass[11pt,a4paper]{article}
-\title{Reservoir Simulation, Exercise 1}
-\author{Einar Baumann}
-
-\usepackage[T1]{fontenc}
-\usepackage{droid}
-\usepackage[defaultsans]{opensans}
-\usepackage{bera}
-\usepackage{listings}
-\usepackage{float}
-\usepackage{graphicx}
-\usepackage{booktabs} 
-\usepackage{subfig}  
-
-\usepackage{caption}
-\captionsetup{margin=10pt,font=small,labelfont=bf}
-
-\usepackage{sectsty}
-\allsectionsfont{\normalfont\sffamily}
-
-\usepackage{color}
-\definecolor{light-gray}{RGB}{250,250,250}  % Background color for listings
-\definecolor{gray}{RGB}{100,100,100}  % Color for line-numbers
-\lstset{
-  language={C},     % the language of the code
-  aboveskip=0em,
-  belowskip=3em,
-  basicstyle=\ttfamily\scriptsize,
-  backgroundcolor=\color{light-gray},
-  frame=single,       % adds a frame around the code
-  rulecolor=\color{black},  % frame color
-  captionpos=t,       % sets the caption-position to bottom
-  breaklines=true,      % sets automatic line breaking
-  breakatwhitespace=false,  % automatic breaks only at whitespace?
-  keepspaces=true,      % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-  tabsize=4,          % sets default tabsize to 2 spaces
-  commentstyle=\color{green}, % comment style
-  keywordstyle=\color{blue},  % keyword style
-  stringstyle=\color{red},  % string literal style
-  numbers=left,       % line-number position: none, left or right
-  numbersep=5pt,        % how far the line-numbers are from the code
-  numberstyle=\tiny\color{gray}, % the style that used for line-numbers
-  stepnumber=2,       % step between two line-numbers.
-  showspaces=false,     % show spaces everywhere with underscores
-  showtabs=false,       % show tabs within strings with underscores
-  showstringspaces=false,   % underline spaces within strings only
-  escapeinside={\%*}{*)},   % if you want to add LaTeX within your code
-  title=\lstname        % show the filename of files included with \lstinputlisting; also try caption instead of title
-}
-
+\input{../../preamble.tex}
 
 \begin{document}
+
+\title{Reservoir Simulation, Exercise 1}
+\author{Einar Baumann}
 \maketitle
+\thispagestyle{empty}
+\pagebreak
 
-\section{Derivations} % (fold)
-\label{sec:derivations}
-this is a test. \texttt{monospace test}
+\section{Derivation of the numerical solutions for the linear flow PDE} % (fold)
+\label{sec:derivation}
+Starting with the PDE for linear flow:
 
-% section derivations (end)
+\begin{equation}
+  \frac{\partial^2 P}{\partial x^2} = \frac{\phi \mu c}{k} \frac{\partial P}{\partial t}
+\end{equation}
 
+For the later discretization we will use a \emph{block-centered grid} to divide the \emph{x}- and \emph{t}-coordinates into discrete grid blocks. The pressure in each block will then be solved numerically for each block for each time step. 
+
+\begin{xy}
+  (0,5)*+{1};%
+  (0,0)*+{\bullet} **\frm{-}
+\end{xy}
+
+% section derivation (end)
 \pagebreak
 
 
@@ -133,6 +99,8 @@ this is a test. \texttt{monospace test}
   label={lst:shellscript},
   language={sh}]
   {../code/GenerateData.sh}
+
+  \pagebreak
 
 \lstinputlisting[%
   caption={Matlab script for plot generation},
