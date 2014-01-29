@@ -8,7 +8,31 @@
 \author{Einar Baumann}
 \maketitle
 \thispagestyle{empty}
-\pagebreak
+
+
+\section*{b) Varying number of grid blocks} % (fold)
+\label{sec:b_varying_number_of_grid_blocks}
+The plot for this case is shown in Figure~\ref{fig:caseb}. We see that increasing the number of grid blocks results in a curve ever closer to piston displacement, which is what we would expect from an ``exact'' solution here because we have no capillary pressure.
+% section b_varying_number_of_grid_blocks (end)
+
+
+\section*{c) Varying time step size} % (fold)
+\label{sec:c_varying_time_step_size}
+The plot for this case is shown in Figure~\ref{fig:casec}. We don't see a lot of change here when we vary the size of the time step, but increasing does give a slightly sharper displacement front for some reason.
+% section c_varying_time_step_size (end)
+
+
+\section*{d) Varying mobilities} % (fold)
+\label{sec:d_varying_mobilities}
+The plot for this case is shown in Figure~\ref{fig:cased}. Decreasing the weighting factors for the mobilities moves the curve further away from the ``ideal'' curve, through something that could be expected for a calculation made with \emph{wighted average selection}, and on to something that's just wrong.
+% section d_varying_mobilities (end)
+
+
+\section*{e) Varying capillary pressure multiplier} % (fold)
+\label{sec:e_varying_capillary_pressure_multiplier}
+The plot for this case is shown in Figure~\ref{fig:casee}. We that that increasing the capillary pressure multiplier makes the model deviate more and more from piston displacement, which is what we expect when the capillary pressure increases.
+% section e_varying_capillary_pressure_multiplier (end)
+
 
 
 \begin{figure}[H]
@@ -41,7 +65,7 @@
 
 
 
-
+\clearpage
 \section{Program listings} % (fold)
 \label{sec:program_listings}
 
