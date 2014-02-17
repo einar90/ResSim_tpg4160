@@ -47,5 +47,6 @@
 # Excluding some figures from ignore
 !wbhp*.pdf
 !fopr*.pdf
+!wgor*.pdf
 
 octave-*
