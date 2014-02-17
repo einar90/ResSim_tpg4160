@@ -44,4 +44,8 @@
 
 # Octave
 
+# Excluding some figures from ignore
+!wbhp*.pdf
+!fopr*.pdf
+
 octave-*
