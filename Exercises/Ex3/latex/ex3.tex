@@ -7,6 +7,35 @@
 \maketitle
 \thispagestyle{empty}
 
+\section{Data and plots} % (fold)
+\label{sec:data_and_plots}
+
+All plots are shown in in the following pages. Only plots showing \emph{both} lines for DRSDT=0 and the default DRSDT setting are shown.
+
+The DATA file was modified to include the gas-oil ratio and BHP for the injection well by inserting the following lines in the summary section:
+\begin{verbatim}
+-- WELL GAS-OIL RATIO FOR INJECTOR
+WGOR
+'INJECTOR'
+/
+-- WELL BOTTOM-HOLE PRESSURE
+WBHP
+'INJECTOR'
+/
+\end{verbatim}
+
+\noindent This is why I've named the plotted data ``...\_mod''. The lines labeled ``...\_mod\_6'' are the lines from assignment 6, i.e. with DRSDT defaulted. These are in all cases the red lines. Views of water, oil and gas saturation in the uppermost block layer ($z=1$) are shown on the last three pages.
+% section data_and_plots (end)
+
+\section{DRSDT: Maximum rate of increase of solution GOR} % (fold)
+\label{sec:drsdt_maximum_rate_of_increase_of_solution_gor}
+
+% section drsdt_maximum_rate_of_increase_of_solution_gor (end)
+When DRSDT is set to 0, which it initially is in the file and thus on the black lines in the plots, the solution GOR is not allowed to rise; i.e. none of the injected (or reservoir) gas is dissolved into the reservoir oil, even if it is undersaturated. When it is defaulted the re-solution rate is unrestricted (equivalent to DRSDT=inf), and $R_s$ will rise very quickly until there is either no free gas left or the oil is saturated.
+
+We see in the WGOR plot that towards the end the gas-oil ratio approaches 1. This is because when the gas is not ``allowed'' to dissolve, it will first force out the oil, leaving only the gas to be produced at the end.
+
+We see in the FOPR plot that oil production drops after some time when DRSDT=0, but remains constant when it is infinite. This is because when DSRDT=inf, the gas dissolved in the oil and is produced
 
 
 
