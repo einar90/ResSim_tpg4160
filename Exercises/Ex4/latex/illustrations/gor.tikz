@@ -1,0 +1,22 @@
+% -*- root: ../ex4.tex -*-
+
+\begin{tikzpicture}
+    \begin{axis}[
+        date coordinates in=x,
+        xticklabel={\year},
+        x tick label style={align=center},
+        date ZERO=1982-10-19, % Set near lowest date
+        width=\textwidth,
+        height=8cm,
+        ymin=0,
+        legend pos=north west,
+        ylabel={Gas-oil ratio (MSCF/STB)},
+        xlabel={Date}
+        ]
+        \addplot[color=red,mark=none] table[x=DATE, y=WGOR]{../data/graphs.dat};
+        \addlegendentry{$20\times 20\times 30$ blocks}
+        \addplot[color=blue,dashed,mark=none] table[x=DATE, y=WGOR-EX3]{../data/graphs.dat};
+        \addlegendentry{$10\times 10\times 3$ blocks}
+    \end{axis}
+\end{tikzpicture}
+

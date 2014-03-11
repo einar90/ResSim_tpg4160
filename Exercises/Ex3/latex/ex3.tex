@@ -33,10 +33,9 @@ WBHP
 % section drsdt_maximum_rate_of_increase_of_solution_gor (end)
 When DRSDT is set to 0, which it initially is in the file and thus on the black lines in the plots, the solution GOR is not allowed to rise; i.e. none of the injected (or reservoir) gas is dissolved into the reservoir oil, even if it is undersaturated. When it is defaulted the re-solution rate is unrestricted (equivalent to DRSDT=inf), and $R_s$ will rise very quickly until there is either no free gas left or the oil is saturated.
 
-We see in the WGOR plot that towards the end the gas-oil ratio approaches 1. This is because when the gas is not ``allowed'' to dissolve, it will first force out the oil, leaving only the gas to be produced at the end.
+In graphs with DRSDT=0 we observe at around 09/84 a sudden drop in WBHP at the producer, accompanied by a sudden rise in WGOR. This is caused by the reservoir hitting the bubble point pressure, releasing the solution gas.
 
-We see in the FOPR plot that oil production drops after some time when DRSDT=0, but remains constant when it is infinite. This is because when DSRDT=inf, the gas dissolved in the oil and is produced
-
+The same behaviour probably occurs for the DRSDT=inf graph at a later point (outside the simulated time span). This likely has something to do with the oil swelling due to the absorbed injection gas.
 
 
 \pagebreak
