@@ -1,0 +1,46 @@
+% -*- root: ../ex5.tex -*-
+
+\pgfplotsset{table/col sep = tab}
+\pgfplotstableread[comment chars={U}]{../data/SPE_3000.RSM}\datafilethree
+\pgfplotstableread[comment chars={U}]{../data/SPE_6000.RSM}\datafilesix
+\pgfplotstableread[comment chars={U}]{../data/SPE_9000.RSM}\datafilenine
+
+\begin{tikzpicture}[font = \sffamily]
+    \begin{axis}[
+        title={Combination plot with all production rates; long (base case) wells},
+        ytick pos = left,
+        xmin = 0, xmax = 1600,
+        x tick label style={align=center},
+        xlabel={Time (Days)},
+        ylabel={FOPR (SM3/Day)},
+        width=\textwidth,
+        height=8cm,
+        ymin=0,
+        ]
+        \addplot[color=red,mark=o] table[x=TIME, y=FOPR]{\datafilethree};
+        \addplot[color=blue,mark=o] table[x=TIME, y=FOPR]{\datafilesix};
+        \addplot[color=brown,mark=o] table[x=TIME, y=FOPR]{\datafilenine};
+    \end{axis}
+    \begin{axis}[
+        hide x axis,
+        xmin = 0, xmax = 1600,
+        axis y line*=right,
+        ylabel={FOPT (SM3)},
+        width=\textwidth,
+        height=8cm,
+        ymin=0,
+        legend style={at={(0.5,-0.20)},anchor=north, legend cell align=left, draw=none, legend columns=3, column sep=0.6cm}
+        ]
+        \addplot[color=red,mark=x] table[x=TIME, y=FOPT]{\datafilethree};
+        \addplot[color=blue,mark=x] table[x=TIME, y=FOPT]{\datafilesix};
+        \addplot[color=brown,mark=x] table[x=TIME, y=FOPT]{\datafilenine};
+
+        \addlegendimage{color=red,mark=o} \addlegendentry{FOPR3k}
+        \addlegendimage{color=blue,mark=o} \addlegendentry{FOPR6k}
+        \addlegendimage{color=brown,mark=o} \addlegendentry{FOPR9k}
+
+        \addlegendimage{color=red,mark=x} \addlegendentry{FOPT3k}
+        \addlegendimage{color=blue,mark=x} \addlegendentry{FOPT6k}
+        \addlegendimage{color=brown,mark=x} \addlegendentry{FOPT9k}
+    \end{axis}
+\end{tikzpicture}

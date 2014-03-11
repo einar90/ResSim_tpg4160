@@ -1,0 +1,39 @@
+% -*- root: ../ex5.tex -*-
+
+\pgfplotsset{table/col sep = tab}
+\pgfplotstableread[comment chars={U}]{../data/SPE_9000.RSM}\datafile % Ignoring lines starting with U
+\pgfplotstableread[comment chars={U}]{../data/SPE_9000SHORT.RSM}\datafileshort % Ignoring lines starting with U
+
+\begin{tikzpicture}[font = \sffamily]
+    \begin{axis}[
+        title={Case 3: Target production rate = 9000},
+        ytick pos = left,
+        xmin = 0, xmax = 1600,
+        x tick label style={align=center},
+        xlabel={Time (Days)},
+        ylabel={FOPR (SM3/Day)},
+        width=\textwidth,
+        height=8cm,
+        ymin=0,
+        ]
+        \addplot[color=red,mark=o] table[x=TIME, y=FOPR]{\datafile};
+        \addplot[color=blue,mark=o] table[x=TIME, y=FOPR]{\datafileshort};
+    \end{axis}
+    \begin{axis}[
+        hide x axis,
+        xmin = 0, xmax = 1600,
+        axis y line*=right,
+        ylabel={FOPT (SM3)},
+        width=\textwidth,
+        height=8cm,
+        ymin=0,
+        legend style={at={(0.5,-0.20)},anchor=north, legend cell align=left, draw=none, legend columns=2, column sep=0.5cm}
+        ]
+        \addplot[color=red,mark=x] table[x=TIME, y=FOPT]{\datafile};
+        \addplot[color=blue,mark=x] table[x=TIME, y=FOPT]{\datafileshort};
+        \addlegendimage{color=red,mark=o} \addlegendentry{FOPR}
+        \addlegendimage{color=blue,mark=o} \addlegendentry{FOPR Short}
+        \addlegendimage{color=red,mark=x} \addlegendentry{FOPT}
+        \addlegendimage{color=blue,mark=x} \addlegendentry{FOPT Short}
+    \end{axis}
+\end{tikzpicture}

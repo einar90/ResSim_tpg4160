@@ -1,0 +1,38 @@
+% -*- root: ../ex5.tex -*-
+
+\pgfplotsset{table/col sep = tab}
+\pgfplotstableread[comment chars={U}]{../data/SPE_3000.RSM}\datafilethree
+\pgfplotstableread[comment chars={U}]{../data/SPE_6000.RSM}\datafilesix
+\pgfplotstableread[comment chars={U}]{../data/SPE_9000.RSM}\datafilenine
+
+\pgfplotstableread[comment chars={U}]{../data/SPE_3000SHORT.RSM}\datafilethreeshort
+\pgfplotstableread[comment chars={U}]{../data/SPE_6000SHORT.RSM}\datafilesixshort
+\pgfplotstableread[comment chars={U}]{../data/SPE_9000SHORT.RSM}\datafilenineshort
+
+\begin{tikzpicture}[font = \sffamily]
+    \begin{axis}[
+        title={Water cut for all cases},
+        ytick pos = left,
+        xmin = 0, xmax = 1600,
+        x tick label style={align=center},
+        xlabel={Time (Days)},
+        ylabel={FWCT (SM3/SM3)},
+        width=\textwidth,
+        height=8cm,
+        ymin=0,
+        legend style={at={(0.5,-0.20)},anchor=north, legend cell align=left, draw=none, legend columns=3, column sep=0.6cm}
+        ]
+        \addplot[color=red] table[x=TIME, y=FWCT]{\datafilethree};
+        \addlegendentry{Long, 3k}
+        \addplot[color=blue] table[x=TIME, y=FWCT]{\datafilesix};
+        \addlegendentry{Long, 6k}
+        \addplot[color=brown] table[x=TIME, y=FWCT]{\datafilenine};
+        \addlegendentry{Long, 9k}
+        \addplot[dashed,color=red] table[x=TIME, y=FWCT]{\datafilethreeshort};
+        \addlegendentry{Short, 3k}
+        \addplot[dashed,color=blue] table[x=TIME, y=FWCT]{\datafilesixshort};
+        \addlegendentry{Short, 6k}
+        \addplot[dashed,color=brown] table[x=TIME, y=FWCT]{\datafilenineshort};
+        \addlegendentry{Short, 9k}
+    \end{axis}
+\end{tikzpicture}
