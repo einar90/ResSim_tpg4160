@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      width=.75\columnwidth, height=10cm,
+      xlabel=Days, ylabel=FOPR,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      axis y line* = left,
+      legend entries={FOPR, FOPT},
+      ]
+      \addlegendimage{blue}
+      \addlegendimage{red}
+    \addplot[color=blue] table[x=TIME, y=FOPR, col sep=comma] {data/field_base.csv};
+  \end{axis}
+  \begin{axis}[
+      width=.75\columnwidth, height=10cm,
+      xlabel=Days, ylabel=FOPT,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      hide x axis,
+      axis y line*=right,
+      ]
+    \addplot[color=red] table[x=TIME, y=FOPT, col sep=comma] {data/field_base.csv};
+  \end{axis}
+\end{tikzpicture}

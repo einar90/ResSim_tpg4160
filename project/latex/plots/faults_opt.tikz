@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      width=.75\columnwidth, height=10cm,
+      title={},
+      xlabel=Days, ylabel=WOPR,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000, 12000, 14000},
+      legend entries={A-1H (original), A-1H (closed faults), A-2AH (original), A-2AH (closed faults)},
+      ]
+      \addlegendimage{ultra thick, blue}
+      \addlegendimage{ultra thick, blue, dashed}
+      \addlegendimage{ultra thick, red}
+      \addlegendimage{ultra thick, red, dashed}
+    \addplot[ultra thick, color=blue] table[x=TIME, y=WOPR:A-1H, col sep=comma] {data/new_wells.csv};
+    \addplot[ultra thick, color=blue, dashed] table[x=TIME, y=WOPR:A-1H, col sep=comma] {data/multflt_new_wells.csv};
+    \addplot[ultra thick, color=red] table[x=TIME, y=WOPR:A-2AH, col sep=comma] {data/new_wells.csv};
+    \addplot[ultra thick, color=red, dashed] table[x=TIME, y=WOPR:A-2AH, col sep=comma] {data/multflt_new_wells.csv};
+  \end{axis}
+\end{tikzpicture}

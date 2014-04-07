@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      width=.75\columnwidth, height=10cm,
+      xlabel=Days, ylabel=WGOR,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      axis y line* = left,
+      legend entries={A-1H WGOR, A-2AH WGOR, A-1H WWCT, A-2AH WWCT},
+      ]
+      \addlegendimage{blue}
+      \addlegendimage{red}
+      \addlegendimage{blue, densely dashed}
+      \addlegendimage{red, densely dashed}
+    \addplot[color=blue] table[x=TIME, y=WGOR:A-1H, col sep=comma] {data/base.csv};
+    \addplot[color=red] table[x=TIME, y=WGOR:A-2AH, col sep=comma] {data/base.csv};
+  \end{axis}
+  \begin{axis}[
+      width=.75\columnwidth, height=10cm,
+      xlabel=Days, ylabel=WWCT,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      hide x axis,
+      axis y line*=right,
+      ]
+    \addplot[color=blue, densely dashed] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/base.csv};
+    \addplot[color=red, densely dashed] table[x=TIME, y=WWCT:A-2AH, col sep=comma] {data/base.csv};
+  \end{axis}
+\end{tikzpicture}

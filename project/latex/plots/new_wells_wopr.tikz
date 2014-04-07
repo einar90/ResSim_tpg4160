@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      width=.75\columnwidth, height=10cm,
+      title={},
+      xlabel=Days, ylabel=WOPR,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000, 12000, 14000},
+      legend entries={A-1H, A-2AH, N-1, N-3, N-4},
+      legend style={legend columns=5},
+      ]
+      \addlegendimage{ultra thick, blue}
+      \addlegendimage{ultra thick, red}
+      \addlegendimage{ultra thick, brown}
+      \addlegendimage{ultra thick, green}
+      \addlegendimage{ultra thick, orange}
+    \addplot[ultra thick, color=blue] table[x=TIME, y=WOPR:A-1H, col sep=comma] {data/new_wells.csv};
+    \addplot[ultra thick, color=red] table[x=TIME, y=WOPR:A-2AH, col sep=comma] {data/new_wells.csv};
+    \addplot[ultra thick, color=brown] table[x=TIME, y=WOPR:N-1, col sep=comma] {data/new_wells.csv};
+    \addplot[ultra thick, color=green] table[x=TIME, y=WOPR:N-3, col sep=comma] {data/new_wells.csv};
+    \addplot[ultra thick, color=orange] table[x=TIME, y=WOPR:N-4, col sep=comma] {data/new_wells.csv};
+  \end{axis}
+\end{tikzpicture}

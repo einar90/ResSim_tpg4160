@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      width=.75\columnwidth, height=10cm,
+      title={A-39A},
+      xlabel=Days, ylabel=WOPR,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000 ,12000, 14000},
+      axis y line* = left,
+      legend entries={WOPR before, WOPR after, WOPT before, WOPT after},
+      ]
+      \addlegendimage{red, dashed}
+      \addlegendimage{red}
+      \addlegendimage{blue, dashed}
+      \addlegendimage{blue}
+    \addplot[ultra thick, red, dashed] table[x=TIME, y=WOPR:A-39A, col sep=comma] {data/before_permedit.csv};
+    \addplot[ultra thick, red] table[x=TIME, y=WOPR:A-39A, col sep=comma] {data/after_permedit.csv};
+  \end{axis}
+  \begin{axis}[
+      width=.75\columnwidth, height=10cm,
+      xlabel=Days, ylabel=WOPT,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      hide x axis,
+      axis y line*=right,
+      ]
+    \addplot[ultra thick, blue, dashed] table[x=TIME, y=WOPT:A-39A, col sep=comma] {data/before_permedit.csv};
+    \addplot[ultra thick, blue] table[x=TIME, y=WOPT:A-39A, col sep=comma] {data/after_permedit.csv};
+  \end{axis}
+\end{tikzpicture}
+
+

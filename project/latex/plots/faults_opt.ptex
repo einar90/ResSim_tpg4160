@@ -1,0 +1,108 @@
+\begin{tikzpicture}
+  \begin{axis}[
+      width=.75\columnwidth, height=12cm,
+      title={A-1H well},
+      xlabel=Days, ylabel=WOPT,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      axis y line* = left,
+      % legend entries={WOPT (original), WOPT(inverted), WOPT (all open), WWCT (original), WWCT(inverted), WWCT (all open)},
+      ]
+      % \addlegendimage{ultra thick, blue}
+      % \addlegendimage{ultra thick, blue, dotted}
+      % \addlegendimage{ultra thick, blue, dashed}
+      % \addlegendimage{ultra thick, red}
+      % \addlegendimage{ultra thick, red, dotted}
+      % \addlegendimage{ultra thick, red, dashed}
+    \addplot[ultra thick, color=blue] table[x=TIME, y=WOPT:A-1H, col sep=comma] {data/base_all.csv};
+    \addplot[ultra thick, color=blue, dashed] table[x=TIME, y=WOPT:A-1H, col sep=comma] {data/multflt_all.csv};
+    \addplot[ultra thick, color=red] table[x=TIME, y=WOPT:A-2AH, col sep=comma] {data/new_wells.csv};
+    \addplot[ultra thick, color=red, dashed] table[x=TIME, y=WOPT:A-2AH, col sep=comma] {data/multflt_new_wells.csv};
+  \end{axis}
+  \begin{axis}[
+      width=.75\columnwidth, height=12cm,
+      xlabel=Days, ylabel=WWCT,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      hide x axis,
+      axis y line*=right,
+      ]
+    % \addplot[ultra thick, color=red] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/base.csv};
+    % \addplot[ultra thick, color=red, dashed] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/changed_perforations_inverted.csv};
+    % \addplot[ultra thick, color=red, dotted] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/changed_perforations_all_open.csv};
+  \end{axis}
+\end{tikzpicture}
+\usepackage[graphics,active,tightpage]{preview}
+\setlength\PreviewBorder{2mm}
+\PreviewEnvironment{tikzpicture}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+      width=.75\columnwidth, height=12cm,
+      title={A-1H well},
+      xlabel=Days, ylabel=WOPT,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      axis y line* = left,
+      % legend entries={WOPT (original), WOPT(inverted), WOPT (all open), WWCT (original), WWCT(inverted), WWCT (all open)},
+      ]
+      % \addlegendimage{ultra thick, blue}
+      % \addlegendimage{ultra thick, blue, dotted}
+      % \addlegendimage{ultra thick, blue, dashed}
+      % \addlegendimage{ultra thick, red}
+      % \addlegendimage{ultra thick, red, dotted}
+      % \addlegendimage{ultra thick, red, dashed}
+    \addplot[ultra thick, color=blue] table[x=TIME, y=WOPT:A-1H, col sep=comma] {data/base_all.csv};
+    \addplot[ultra thick, color=blue, dashed] table[x=TIME, y=WOPT:A-1H, col sep=comma] {data/multflt_all.csv};
+    \addplot[ultra thick, color=red] table[x=TIME, y=WOPT:A-2AH, col sep=comma] {data/new_wells.csv};
+    \addplot[ultra thick, color=red, dashed] table[x=TIME, y=WOPT:A-2AH, col sep=comma] {data/multflt_new_wells.csv};
+  \end{axis}
+  \begin{axis}[
+      width=.75\columnwidth, height=12cm,
+      xlabel=Days, ylabel=WWCT,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      hide x axis,
+      axis y line*=right,
+      ]
+    % \addplot[ultra thick, color=red] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/base.csv};
+    % \addplot[ultra thick, color=red, dashed] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/changed_perforations_inverted.csv};
+    % \addplot[ultra thick, color=red, dotted] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/changed_perforations_all_open.csv};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+      width=.75\columnwidth, height=12cm,
+      title={A-1H well},
+      xlabel=Days, ylabel=WOPT,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      axis y line* = left,
+      % legend entries={WOPT (original), WOPT(inverted), WOPT (all open), WWCT (original), WWCT(inverted), WWCT (all open)},
+      ]
+      % \addlegendimage{ultra thick, blue}
+      % \addlegendimage{ultra thick, blue, dotted}
+      % \addlegendimage{ultra thick, blue, dashed}
+      % \addlegendimage{ultra thick, red}
+      % \addlegendimage{ultra thick, red, dotted}
+      % \addlegendimage{ultra thick, red, dashed}
+    \addplot[ultra thick, color=blue] table[x=TIME, y=WOPT:A-1H, col sep=comma] {data/base_all.csv};
+    \addplot[ultra thick, color=blue, dashed] table[x=TIME, y=WOPT:A-1H, col sep=comma] {data/multflt_all.csv};
+    \addplot[ultra thick, color=red] table[x=TIME, y=WOPT:A-2AH, col sep=comma] {data/new_wells.csv};
+    \addplot[ultra thick, color=red, dashed] table[x=TIME, y=WOPT:A-2AH, col sep=comma] {data/multflt_new_wells.csv};
+  \end{axis}
+  \begin{axis}[
+      width=.75\columnwidth, height=12cm,
+      xlabel=Days, ylabel=WWCT,
+      xmin=0, ymin=0,
+      xtick={0, 2000, 4000, 6000, 8000, 10000},
+      hide x axis,
+      axis y line*=right,
+      ]
+    % \addplot[ultra thick, color=red] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/base.csv};
+    % \addplot[ultra thick, color=red, dashed] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/changed_perforations_inverted.csv};
+    % \addplot[ultra thick, color=red, dotted] table[x=TIME, y=WWCT:A-1H, col sep=comma] {data/changed_perforations_all_open.csv};
+  \end{axis}
+\end{tikzpicture}
