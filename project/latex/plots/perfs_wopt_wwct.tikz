@@ -6,7 +6,8 @@
       xmin=0, ymin=0,
       xtick={0, 2000, 4000, 6000, 8000, 10000},
       axis y line* = left,
-      legend entries={WOPT (original), WOPT(inverted), WOPT (all open), WWCT (original), WWCT(inverted), WWCT (all open)},
+      legend entries={WOPT (orig.), WOPT(inv.), WOPT (open), WWCT (original), WWCT(inv.), WWCT (open)},
+      legend style={legend columns=3},
       ]
       \addlegendimage{ultra thick, blue}
       \addlegendimage{ultra thick, blue, dotted}

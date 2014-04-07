@@ -5,14 +5,15 @@
       xmin=0, ymin=0,
       xtick={0, 2000, 4000, 6000, 8000, 10000, 12000, 14000},
       axis y line* = left,
-      legend entries={FOPR (new wells), FOPR (base), FOPT (new wells), FOPT (base)},
+      legend entries={FOPR (w/new), FOPR (base), FOPT (w/new), FOPT (base)},
+      legend style={legend columns=2},
       ]
       \addlegendimage{blue}
       \addlegendimage{blue, dashed}
       \addlegendimage{red}
       \addlegendimage{red, dashed}
-    \addplot[color=blue] table[x=TIME, y=FOPR, col sep=comma] {data/field_new_wells.csv};
-    \addplot[color=blue, dashed] table[x=TIME, y=FOPR, col sep=comma] {data/field_base.csv};
+    \addplot[ultra thick, color=blue] table[x=TIME, y=FOPR, col sep=comma] {data/field_new_wells.csv};
+    \addplot[ultra thick, color=blue, dashed] table[x=TIME, y=FOPR, col sep=comma] {data/field_base.csv};
   \end{axis}
   \begin{axis}[
       width=.75\columnwidth, height=10cm,
@@ -22,7 +23,7 @@
       hide x axis,
       axis y line*=right,
       ]
-    \addplot[color=red] table[x=TIME, y=FOPT, col sep=comma] {data/field_new_wells.csv};
-    \addplot[color=red, dashed] table[x=TIME, y=FOPT, col sep=comma] {data/field_base.csv};
+    \addplot[ultra thick, color=red] table[x=TIME, y=FOPT, col sep=comma] {data/field_new_wells.csv};
+    \addplot[ultra thick, color=red, dashed] table[x=TIME, y=FOPT, col sep=comma] {data/field_base.csv};
   \end{axis}
 \end{tikzpicture}
