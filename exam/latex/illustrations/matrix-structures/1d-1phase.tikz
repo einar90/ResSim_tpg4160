@@ -1,0 +1,15 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+  \draw [thick] (0,0) -- (0,6);
+  \draw [thick] (0,0) -- (.1,0);
+  \draw [thick] (0,6) -- (.1,6);
+
+  \draw [thick] (6,0) -- (6,6);
+  \draw [thick] (6,0) -- (5.9,0);
+  \draw [thick] (6,6) -- (5.9,6);
+
+  \draw [] (0,6)   -- (6,0)   node [midway,fill=white, inner sep=.1em] {$b$};
+  \draw [] (0,5.5) -- (5.5,0) node [midway,fill=white, inner sep=.1em] {$a$};
+  \draw [] (.5,6) -- (6,.5) node [midway,fill=white, inner sep=.1em] {$c$};
+\end{tikzpicture}

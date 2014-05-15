@@ -1,0 +1,49 @@
+% -*- root: ../ressim.tex -*-
+
+\section{Gullfaks project} % (fold)
+\label{sec:gullfaks_project}
+The Gullfaks Field in the North sea consist of many reser voirs, and some of them are quite isolated from the rest. This makes them easier to simulate and for us to work on. We were assigned to work on Segment H1, which Statoil has developed an Eclipse reservoir model for. The Gullfaks H1 segment is an almost isolated part of the main Gullfaks field.
+
+\subsection{Communication in the Lower Brent Group} % (fold)
+\label{sub:communication_in_the_lower_brent_group}
+
+\begin{question}
+  Which geological factors are causing the good communication in the Lower Brent Group of the H1 Segment of the Gullfaks Field?
+\end{question}
+The main factors contributing to the good communication are
+\begin{itemize}
+  \item little internal faulting;
+  \item the formation is relatively homogenous.
+\end{itemize}
+% subsection communication_in_the_lower_brent_group (end)
+
+
+\subsection{Chemical injection in Eclipse} % (fold)
+\label{sub:chemical_injection_in_eclipse}
+
+\begin{question}
+  Describe briefly how chemical injection is accounted for in the Eclipse simulations that you did.
+\end{question}
+
+To get the effects of the Abio Gel in the Eclipse model we used a tracer. The property calculator in FloViz was then used to create a new property equal to some fraction of the permeability, dependent on the amount of tracer found in the blocks (the value of the tracer property). Blocks with a large amount of tracer had the property set to a small fraction, blocks with no tracer were left unaltered. This values of this new property was then applied as permeability in the simulation grid.
+% subsection chemical_injection_in_eclipse (end)
+
+
+\subsection{Uncertainties} % (fold)
+\label{sub:uncertainties}
+
+\begin{question}
+  What are the main uncertainties in the simulation results?
+\end{question}
+
+\begin{itemize}
+  \item Uncertainties in the transmissiblity across faults causes uncertainty in the oil- and water production results.
+  \item Uncertainties in how the Abio gel will affect the reservoir (how it will spread, how much the permeability will be reduced) causes uncertainties as to how the fluids will flow in general after the injection. This means uncertainties in all production rates.
+  \item There will always be uncertainties relating to permeability and transmissiblity in the reservoir, which generally introduces uncertainties for most production properties.
+\end{itemize}
+
+% subsection uncertainties (end)
+
+
+
+% section gullfaks_project (end)

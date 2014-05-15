@@ -1,0 +1,120 @@
+% -*- root: ../ressim.tex -*-
+
+\section{Band structure and bandwidth of equation systems} % (fold)
+\label{sec:band_structure_and_bandwidth_of_equation_systems}
+
+\begin{question}
+  Sketch the coefficient matrix for the following systems, indicating non-zero diagonals with
+approximate lines. Label the diagonals. What is the bandwidth?
+\end{question}
+
+The bandwidth may be computed as
+\begin{equation}
+  N_b = 2N_{[x,y]}+1
+\end{equation}
+depending on the equation numbering scheme.
+
+\subsection{One-dimensional, one phase flow} % (fold)
+\label{sub:one_dimensional_}
+
+\begin{question}
+  Sketch the coefficient matrix for one-dimensional, one phase flow, with the pressure equation
+  \begin{equation}
+    \nonumber
+    a_i P_{i-1} + b_i P_i + c_i P_{i+1} = d_i, \; i=1,N
+  \end{equation}
+  applicable to the following system:
+
+  \begin{center}
+    \includegraphics[]{illustrations/diffusivity/1d-system-discrete.pdf}
+  \end{center}
+\end{question}
+
+\begin{equation}
+  N_b = 3 \nonumber
+\end{equation}
+
+\begin{center}
+  \includegraphics[]{illustrations/matrix-structures/1d-1phase.pdf}
+\end{center}
+
+
+% subsection one_dimensional_ (end)
+
+
+\subsection{Two-dimensional, one phase flow} % (fold)
+\label{sub:two_dimensional_one_phase_flow}
+
+\begin{question}
+  Sketch the coefficient matrix for two-dimensional, one phase flow with the pressure equation:
+  \begin{equation}
+    \nonumber
+    e_{i,j}P_{i,j-1}+a_{i,j}P_{i-1,j}+b_{i,j}P_{i,j}+c_{i,j}P_{i+1,j}+f_{i,j}P_{i,j+1}=d_{i,j},\; i=1,N_{x},\; j=1,N_{y}
+  \end{equation}
+  applicable to the following grid system:
+
+  \begin{center}
+    \includegraphics[]{illustrations/matrix-structures/2d-system-numbering.pdf}
+  \end{center}
+\end{question}
+
+\begin{equation}
+  N_b = 2N_x + 1 = 2\cdot 6 + 1 = 13 \nonumber
+\end{equation}
+
+\begin{center}
+  \includegraphics[]{illustrations/matrix-structures/2d-2phase.pdf}
+\end{center}
+
+% subsection two_dimensional_one_phase_flow (end)
+
+\subsection{Two-dimensional, two phase flow, alternative numbering} % (fold)
+\label{sub:two_dimensional_two_phase_flow_alternative_numbering}
+
+\begin{question}
+  As above, but now the numbering of the grid starts in the $j$-direction:
+
+  \begin{center}
+    \includegraphics[]{illustrations/matrix-structures/2d-system-numbering-alt.pdf}
+  \end{center}
+\end{question}
+
+\begin{equation}
+  N_b = 2N_y+1 = 2\cdot 8 + 1 = 17 \nonumber
+\end{equation}
+
+\begin{center}
+  \includegraphics[]{illustrations/matrix-structures/2d-2phase-alt.pdf}
+\end{center}
+
+% subsection two_dimensional_two_phase_flow_alternative_numbering (end)
+
+\subsection{Three-dimensional, one phase flow} % (fold)
+\label{sub:three_dimensional_one_phase_flow}
+
+\begin{question}
+  Three dimensional, one phase flow, with the pressure equation:
+  \begin{multline*}
+    g_{i,j,k}P_{i,j,k-1}+e_{i,j,k}P_{i,j-1,k}+a_{i,j,k}P_{i-1,j,k}+b_{i,j,k}P_{i,j,k} \\
+    +c_{i,j,k}P_{i+1,j,k}+f_{i,j,k}P_{i,j+1,k}+h_{i,j,k}P_{i,j,k+1}=d_{i,j,k}, \\
+    i=1,N_{x},j=1,N_{y},k=1,N_{z}
+  \end{multline*}
+  applicable to the following grid system (grid blocks numbered in the sequence of $x,y,z$):
+
+  \begin{center}
+    \includegraphics[scale=0.75]{illustrations/matrix-structures/3d-system-numbering.pdf}
+  \end{center}
+\end{question}
+
+Bandwidth, when numbering along first $x$, then  $y$, then $z$:
+\begin{equation}
+  N_b = 2N_x N_y +1 \nonumber
+\end{equation}
+
+\begin{center}
+  \includegraphics[]{illustrations/matrix-structures/3d-1phase.pdf}
+\end{center}
+
+% subsection three_dimensional_one_phase_flow (end)
+
+% section band_structure_and_bandwidth_of_equation_systems (end)

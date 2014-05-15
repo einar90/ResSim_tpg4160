@@ -1,0 +1,39 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+
+  % Axes
+  \draw [-latex] (0,0) -- (12.5,0) node [anchor=west] {$x$};
+  \draw [-latex] (0,0) -- (0,6.5) node [anchor=east] {$S_w$};
+
+  % Saturation indicator lines
+  \draw [densely dotted] (0,1) -- (12,1) node [at start, anchor=east] {$S_{wir}$};
+  \draw [densely dotted] (0,5) -- (12,5) node [at start, anchor=east] {$1-S_{wir}$};
+  \draw [densely dotted] (0,6) -- (12,6) node [at start, anchor=east] {1};
+
+  % Saturation line (exact)
+  \draw [thick] (0,5) edge[out=320,in=180] (7,2);
+  \draw [thick] (7,2) -- (7,1);
+  \draw [thick] (7,1) -- (12,1);
+
+  % Saturation line (upstream)
+  \draw [thick, red] (0,5) edge[out=320,in=180] (6.7,2.1);
+  \draw [thick, red] (6.7,2.1) edge[out=350,in=180] (7.5,1);
+
+  % Saturation line (average)
+  \draw [thick, blue] (0,5) edge[out=325,in=180] (5.3,2.7);
+  \draw [thick, blue] (5.3,2.7) edge[out=0,in=110] (6.1,1.4);
+  \draw [thick, blue] (6.1,1.4) edge[out=290,in=180] (7,1);
+
+  % Legend
+  \draw [thick]                   (9,4  ) -- (10,4  ) node [anchor=west] {exact};
+  \draw [thick, blue, text=black] (9,3.5) -- (10,3.5) node [anchor=west] {average};
+  \draw [thick, red, text=black]  (9,3  ) -- (10,3  ) node [anchor=west] {upstream};
+
+  % Grid blocks
+  \draw [] (0,7) rectangle (12,8);
+  \foreach \x in {1,2,...,11}
+    \draw [] (\x,7) -- (\x,8);
+  \draw [->] (-1,7.5) -- (0,7.5) node [at start, anchor=east] {$Q_w$};
+
+\end{tikzpicture}

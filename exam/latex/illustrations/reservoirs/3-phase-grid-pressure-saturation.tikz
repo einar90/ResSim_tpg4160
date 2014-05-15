@@ -1,0 +1,84 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+  % Dummy lines
+  % \draw (0,0) -- (\textwidth,0);
+  % \draw (\textwidth/4.0, 0) -- (\textwidth/4.0, 1);
+  % \draw (\textwidth/4.0+3/4/2*\textwidth, 0) -- (\textwidth/4.0+3/4/2*\textwidth, 1);
+
+  \draw [thick,gray] (1.5,0) -- (1.5,10);
+  \draw [thick,gray] (3,0) -- (3,10);
+  \foreach \y in {1,...,10}
+    \draw [dotted,gray] (1.5,\y) -- (3,\y);
+
+  % GOC, WOC labels
+  \draw [thick, dashed, gray, text=black] (1,1) -- (15,1) node [at start, anchor=east] {WOC};
+  \draw [thick, dashed, gray, text=black] (1,7) -- (15,7) node [at start, anchor=east] {GOC};
+
+  % Pressure curve axes
+  \draw [-latex,thick] (4,0) -- (9,0) node [anchor=north] {$P$};
+  \draw [-latex,thick] (4,0) -- (4,10);
+
+  % Pressure curves
+  \draw [blue] (4.3,9.9) -- (8.5,.1); % Water
+  \draw [brown] (6.5,9) -- (8.5,1); % Oil
+  \draw [red] (7.8,9) -- (8,7); % Gas
+
+  % Annotations
+  \draw [] (5,9.5) edge[out=180,in=30,->] (4.7,9) node [anchor=west,font=\small] {$P_w=P_{ref}+(z-z_{ref})\rho_w g$};
+  \draw [] (6,5) edge[out=45,in=-170,->] (8,7) node [anchor=north,font=\small,fill=white,inner sep=.2em] {$(P_g)_{GOC}(P_o)_{GOC}+P_{dog}$};
+  \draw [] (6.5,2) edge[out=-90,in=120,->] (8.5,1) node [anchor=south,font=\small,fill=white,inner sep=.2em] {$(P_o)_{WOC} ) (P_w)_{WOC} + P_{dow}$};
+
+
+
+
+
+
+  % Saturation curve axes
+  \draw [thick,-latex] (10,0) -- (15,0) node [anchor=north] {$S$};
+  \draw [thick,-latex] (10,0) -- (10,10);
+
+  % Saturation curves (continous)
+  \draw [black] (10.5,10) edge[out=-90,in=160] (14.5,1); % Continous oil
+  \draw [black] (11,10) edge[out=-90,in=170] (14.5,7); % Continous gas
+
+  % Saturation curve (grid 1-S_g)
+  \draw [red] (11.0,10) -- (11.1,10);
+  \draw [red] (11.1,10) -- (11.1,9 );
+  \draw [red] (11.1,9 ) -- (11.5,9 );
+  \draw [red] (11.5,9 ) -- (11.5,8 );
+  \draw [red] (11.5,8 ) -- (13.0,8 );
+  \draw [red] (13.0,8 ) -- (13.0,7 );
+  \draw [red] (13.0,7 ) -- (14.5,7 );
+  \draw [red] (14.5,7 ) -- (14.5,1 );
+
+  % Saturation curve (grid S_w)
+  \draw [blue] (10.50,10) -- (10.50,10);
+  \draw [blue] (10.50,10) -- (10.50,9 );
+  \draw [blue] (10.50,9 ) -- (10.55,9 );
+  \draw [blue] (10.55,9 ) -- (10.55,8 );
+  \draw [blue] (10.55,8 ) -- (10.60,8 );
+  \draw [blue] (10.60,8 ) -- (10.60,7 );
+  \draw [blue] (10.60,7 ) -- (10.70,7 );
+  \draw [blue] (10.70,7 ) -- (10.70,6 );
+  \draw [blue] (10.70,6 ) -- (10.90,6 );
+  \draw [blue] (10.90,6 ) -- (10.90,5 );
+  \draw [blue] (10.90,5 ) -- (11.20,5 );
+  \draw [blue] (11.20,5 ) -- (11.20,4 );
+  \draw [blue] (11.20,4 ) -- (11.60,4 );
+  \draw [blue] (11.60,4 ) -- (11.60,3 );
+  \draw [blue] (11.60,3 ) -- (12.30,3 );
+  \draw [blue] (12.30,3 ) -- (12.30,2 );
+  \draw [blue] (12.30,2 ) -- (13.30,2 );
+  \draw [blue] (13.30,2 ) -- (13.30,1 );
+
+  % Annotations
+  \draw [] (13,9.5) edge[out=-180,in=0,->] (11.5,8.7) node [anchor=west, font=\small] {$1-S_g$};
+  \draw [] (12.7,5.5) edge[out=-180,in=0,->] (11.2,4.7) node [anchor=west, font=\small] {$S_w$};
+
+
+
+
+
+
+\end{tikzpicture}

@@ -1,0 +1,5 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+  \draw [] (0,0) rectangle (11,1);
+\end{tikzpicture}

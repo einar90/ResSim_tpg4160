@@ -1,0 +1,22 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+  \draw [] (0,0) rectangle (11,1);
+
+  \foreach \x in {0,1,...,10}
+  {
+    \draw (\x,0) -- (\x,1);
+    \node [] at (\x+.5, 0.5) {$\bullet$};
+  }
+
+  \node [anchor=south] at (4.5,.5) {$i-1$};
+  \node [anchor=south] at (5.5,.5) {$i$};
+  \node [anchor=south] at (6.5,.5) {$i+1$};
+
+  \node [anchor=south] at (.5,.5) {$1$};
+  \node [anchor=south] at (10.5,.5) {$N$};
+
+  \draw [] (5,-.5) -- (6,-.5) node [midway, anchor=north] {$\Delta x$};
+  \draw [] (5,-.6) -- (5,-.4);
+  \draw [] (6,-.6) -- (6,-.4);
+\end{tikzpicture}

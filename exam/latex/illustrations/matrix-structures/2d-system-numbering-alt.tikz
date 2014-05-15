@@ -1,0 +1,22 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+
+  \foreach \x in {1,2,...,6} {
+    \foreach \y [evaluate = \y as \ypp using int(\y+8*(\x-1))] in {1,2,...,8} {
+      \node [] at (\x,-\y) {\ypp};
+    }
+  }
+
+
+  \foreach \y in {0,1,...,8} {
+    \draw (.5,-\y-.5) -- (6.5,-\y-.5);
+  }
+
+  \foreach \x in {0,1,...,6} {
+    \draw (\x+.5,-.5) -- (\x+.5,-8.5);
+  }
+
+  \draw [thick,->] (-.1,.1) -- (1,.1) node [anchor=west] {$i$};
+  \draw [thick,->] (-.1,.1) -- (-.1,-1) node [anchor=north] {$j$};
+\end{tikzpicture}

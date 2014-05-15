@@ -1,0 +1,43 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+  % \draw [->, color=red] (0,0,0) -- (10,0,0) node [midway, fill=white] {$x$};
+  % \draw [->, color=red] (0,0,0) -- (0,10,0) node [midway, fill=white] {$y$};
+  % \draw [->, color=red] (0,0,0) -- (0,0,10) node [midway, fill=white] {$z$};
+
+
+
+  \foreach \x in {0,2,...,10} {
+    \draw [] (\x,0,10) -- (\x,10,10);
+    \draw [] (\x,10,10) -- (\x,10,0);
+  }
+
+  \foreach \z in {0,2,...,10} {
+    \draw [] (0,10,\z) -- (10,10,\z);
+    \draw [] (10,10,\z) -- (10,0,\z);
+  }
+
+  \foreach \y in {0,2,...,10} {
+    \draw [] (0,\y,10) -- (10,\y,10);
+    \draw [] (10,\y,10) -- (10,\y,0);
+  }
+
+  \node [anchor=north] at (5,0,10) {$i$};
+  \node [anchor=north] at (1,0,10) {$1$};
+  \node [anchor=north] at (9,0,10) {$N_x$};
+
+  \node [anchor=west]  at (10,0,5) {$j$};
+  \node [anchor=west]  at (10,0,9)  {$1$};
+  \node [anchor=west]  at (10,0,1)  {$N_y$};
+
+  \node [anchor=east]  at (0,5,10) {$k$};
+  \node [anchor=east]  at (0,9,10)  {$1$};
+  \node [anchor=east]  at (0,1,10)  {$N_z$};
+
+  \node [] at (5,5,10) {$i,j,k$};
+  \node [] at (3,5,10) {$i-1,j,k$};
+  \node [] at (7,5,10) {$i+1,j,k$};
+  \node [] at (5,3,10) {$i,j,k+1$};
+  \node [] at (5,7,10) {$i,j,k-1$};
+
+\end{tikzpicture}

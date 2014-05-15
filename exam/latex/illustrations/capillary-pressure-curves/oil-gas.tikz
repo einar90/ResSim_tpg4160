@@ -1,0 +1,16 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+  % Axes
+  \draw [-latex,thick] (0,0) -- (5,0) node [anchor=west] {$1-S_g$};
+  \draw [-latex,thick] (0,0) -- (0,6) node [anchor=east] {$P_{cog}$};
+
+  % Residual lines
+  \draw [dotted] (0,.7) -- (5,.7) node [at start, anchor=east] {$P_{dog}$};
+  \draw [dotted] (1,0) -- (1,6);
+  \draw [underbrace] (0,-.1) -- (1,-.1) node [midway, anchor=north] {$S_{lr}$};
+
+  % Curve
+  \draw [thick] (1,5.8) edge[in=-180,out=-90] (4,.7);
+  \draw [thick] (4,.7) -- (4,0) node [anchor=north] {1.0};
+\end{tikzpicture}

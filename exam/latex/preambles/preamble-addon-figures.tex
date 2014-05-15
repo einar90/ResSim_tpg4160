@@ -1,0 +1,82 @@
+%******************************************************************************
+% This preabmle contains packages needed to create figures and plots in LaTeX.
+%******************************************************************************
+
+\usepackage{etex}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.9}
+\usetikzlibrary{calc}
+\usetikzlibrary{fit}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{arrows,decorations.markings}
+
+% Vector Styles for drawings
+\tikzstyle{load}   = [ultra thick,-latex]
+\tikzstyle{stress} = [-latex]
+\tikzstyle{dim}    = [latex-latex]
+\tikzstyle{axis}   = [-latex,black!55]
+
+
+\tikzset{three sided bottom/.style={
+        draw=none,
+        append after command={
+            [shorten <= -0.5\pgflinewidth]
+            ([shift={(-1.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north east) % North edge
+        edge([shift={( 0.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north west) % North edge
+            ([shift={(-0.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north east) % East edge
+        edge([shift={(-0.5\pgflinewidth,-0.0\pgflinewidth)}]\tikzlastnode.south east) % East edge
+            ([shift={( 0.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north west) % West edge
+        edge([shift={( 0.5\pgflinewidth,+0.5\pgflinewidth)}]\tikzlastnode.south west) % West edge
+            % ([shift={( 0.5\pgflinewidth,+0.5\pgflinewidth)}]\tikzlastnode.south west) % South edge
+        % edge([shift={(-1.0\pgflinewidth,+0.5\pgflinewidth)}]\tikzlastnode.south east) % South edge
+
+        }
+    }
+}
+
+\tikzset{three sided top/.style={
+        draw=none,
+        append after command={
+            [shorten <= -0.5\pgflinewidth]
+            % ([shift={(-1.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north east) % North edge
+        % edge([shift={( 0.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north west) % North edge
+            ([shift={(-0.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north east) % East edge
+        edge([shift={(-0.5\pgflinewidth,-0.0\pgflinewidth)}]\tikzlastnode.south east) % East edge
+            ([shift={( 0.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north west) % West edge
+        edge([shift={( 0.5\pgflinewidth,+0.5\pgflinewidth)}]\tikzlastnode.south west) % West edge
+            ([shift={( 0.5\pgflinewidth,+0.5\pgflinewidth)}]\tikzlastnode.south west) % South edge
+        edge([shift={(-1.0\pgflinewidth,+0.5\pgflinewidth)}]\tikzlastnode.south east) % South edge
+
+        }
+    }
+}
+
+\tikzset{rectangle split h/.style={
+    draw, rectangle split, rectangle split parts=#1, rectangle split horizontal
+}}
+
+
+\tikzset{underbrace/.style={
+    thick,
+    decoration={
+        brace,
+        mirror,
+    },
+    decorate
+}}
+
+\tikzset{overbrace/.style={
+    thick,
+    decoration={
+        brace,
+    },
+    decorate
+}}
+
+\tikzset{overbrace label/.style={
+    pos=0.5,anchor=south,yshift=0.2cm
+}}
+
+\tikzset{underbrace label/.style={
+    pos=0.5,anchor=north,yshift=-0.2cm
+}}

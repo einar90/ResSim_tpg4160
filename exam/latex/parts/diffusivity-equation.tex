@@ -1,0 +1,539 @@
+% -*- root: ../ressim.tex -*-
+
+\section{The diffusivity equation} % (fold)
+\label{sec:the_diffusivity_equation}
+
+\subsection{1D, linear, horizontal, one-phase diffusivity equation} % (fold)
+\label{sub:1d_linear_horizontal_one_phase_diffusivity_equation}
+
+\begin{question}
+  The simple 1D, linear, horizontal, one-phase diffusivity equation may be written as:
+  \begin{equation}
+    \frac{\partial^2 P}{\partial x^2} = \left( \frac{\phi \mu c}{k} \right) \frac{\partial P}{\partial t}
+  \end{equation}
+\end{question}
+
+\subsubsection{Derivation} % (fold)
+\label{ssub:derivation}
+
+\begin{question}
+  List the steps involved in derivating the diffusivity equation.
+\end{question}
+
+Equations needed:
+\begin{itemize}
+  \item Continuity equation:
+    \begin{equation}
+      - \frac{\partial}{\partial x} (\rho u) = \frac{\partial}{\partial t} (\phi \rho)
+    \end{equation}
+  \item Darcy's equation:
+    \begin{equation}
+      u = - \frac{k}{\mu} \frac{\partial P}{\partial x}
+    \end{equation}
+  \item Fluid compressibility:
+    \begin{equation}
+      c_f = - \frac{1}{V} \left( \frac{\partial V}{\partial P} \right)_T =
+           \frac{1}{\rho} \left( \frac{\partial \rho}{\partial P} \right)
+           \implies \rho c_f = \frac{d \rho }{dP}
+    \end{equation}
+  \item Rock compressibility:
+    \begin{equation}
+      c_r = \frac{1}{\phi} \left( \frac{\partial\phi}{\partial P} \right)_T
+      \implies \phi c_r = \frac{d\phi}{dP}
+    \end{equation}
+\end{itemize}
+
+\noindent Assumption:
+\begin{itemize}
+  \item Assume constant permeability and viscosity.
+\end{itemize}
+
+\noindent Derivation:
+\begin{itemize}
+  \item Substitute Darcy's equation into the continuity equation:
+    \begin{equation}
+      \frac{\partial}{\partial x} \left(\rho \frac{k}{\mu} \frac{\partial P}{\partial x}\right)
+      = \frac{\partial}{\partial t} (\phi \rho)
+    \end{equation}
+  \item Expand the \emph{right} side:
+    \begin{equation}
+      \frac{\partial}{\partial t} (\phi \rho)
+      = \rho \frac{\partial \phi}{\partial t} + \phi \frac{\partial \rho}{\partial t}
+      = \rho \frac{\partial \phi}{\partial P} \frac{\partial P}{\partial t}
+      + \phi \frac{\partial \rho}{\partial P} \frac{\partial P}{\partial t}
+      = \frac{\partial P}{\partial t} \left( \rho \frac{\partial \phi}{\partial P} + \phi \frac{\partial \rho}{\partial P} \right)
+    \end{equation}
+  \item Substitute with the rock- and fluid compressibility equations:
+    \begin{equation}
+      \frac{\partial P}{\partial t} \left( \rho \frac{\partial \phi}{\partial P} + \phi \frac{\partial \rho}{\partial P} \right)
+       = \frac{\partial P}{\partial t} \left( \rho \phi c_r + \phi \rho c_f \right)
+       = \frac{\partial P}{\partial t} \rho \phi \left( c_r +  c_f \right)
+       = \rho \phi c \frac{\partial P}{\partial t}
+    \end{equation}
+  \item Using the assumption that permeability and viscosity is constant to simplify the \emph{left} side:
+    \begin{equation}
+      \frac{\partial}{\partial x} \left(\rho \frac{k}{\mu} \frac{\partial P}{\partial x}\right)
+      = \frac{k}{\mu} \frac{\partial}{\partial x} \left(\rho \frac{\partial P}{\partial x}\right)
+    \end{equation}
+  \item Performing the first differentiation, expanding and substituting for fluid compressibility:
+    \begin{equation}
+      \frac{\partial}{\partial x}\left(\rho\frac{\partial P}{\partial x}\right)
+      = \rho\frac{\partial^{2}P}{\partial x^{2}}
+      + \frac{\partial\rho}{\partial x}\frac{\partial P}{\partial x}
+      = \rho\frac{\partial^{2}P}{\partial x^{2}}
+      + \frac{\partial P}{\partial x}\frac{\partial\rho}{\partial P}\frac{\partial P}{\partial x}
+      = \rho\frac{\partial^{2}P}{\partial x^{2}}
+      + \left(\frac{\partial P}{\partial x}\right)^{2}\rho c_{f}
+    \end{equation}
+  \item Assume that $\rho\frac{\partial^{2}P}{\partial x^{2}} \gg \left(\frac{\partial P}{\partial x}\right)^{2}\rho c_{f}$ so that
+    \begin{equation}
+       \frac{\partial}{\partial x}\left(\rho\frac{\partial P}{\partial x}\right)
+       \approx  \rho\frac{\partial^{2}P}{\partial x^{2}}
+    \end{equation}
+  \item Thus the final equation is:
+    \begin{equation}
+      \frac{k}{\mu} \rho\frac{\partial^{2}P}{\partial x^{2}} = \rho \phi c \frac{\partial P}{\partial t}
+      \implies \frac{\partial^{2}P}{\partial x^{2}} = \frac{\phi \mu c}{k}\frac{\partial P}{\partial t}
+    \end{equation}
+\end{itemize}
+
+\noindent \textbf{Summary:}
+\begin{itemize}
+  \item Equations needed: Continuity equation; Darcy's equation; fluid compressibility; rock compressibility.
+  \item Assumption: Costant permeability and viscosity.
+  \item Substitute Darcy's equation into continuity equation; expand and substitute for rock and fluid compressibility on right side, fluid compressibility on left side.
+  \item Assume that $\rho\frac{\partial^{2}P}{\partial x^{2}} \gg \left(\frac{\partial P}{\partial x}\right)^{2}\rho c_{f}$ to simplify the expression and arrive at the final equation.
+\end{itemize}
+% subsubsection derivation (end)
+
+
+
+\subsubsection{Applicable system} % (fold)
+\label{ssub:applicable_system}
+
+\begin{question}
+  Sketch the one-dimensional, horizontal porous system that the equation applies to, in both continous and discrete form.
+\end{question}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[]{illustrations/diffusivity/1d-system-continous.pdf}
+  \caption{Sketch of continous system.}
+  \label{fig:diffusivity_1d_continous}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[]{illustrations/diffusivity/1d-system-discrete.pdf}
+  \caption{Sketch of discrete system.}
+  \label{fig:diffusivity_1d_discrete}
+\end{figure}
+
+% subsubsection applicable_system (end)
+
+\subsubsection{Discretization using Taylor series} % (fold)
+\label{ssub:discretization_using_taylor_series}
+
+\begin{question}
+  Using Taylor series expansions, derive the finite difference approximations needed for the
+discretization of the equation (for constant grid block size).
+\end{question}
+
+\noindent \textbf{Discretizing the space derivative:}
+Using forewards+backwards  Taylor expansion to discretize the space derivative. Setting $\Delta x = h$.
+\begin{align}
+  \nonumber
+  P(x_{i+1},t) &= P\left(x_{i},t\right)+\frac{h}{1!}P'\left(x_{i},t\right)+\frac{h^{2}}{2!}P''\left(x_{i},t\right)+\frac{h^{3}}{3!}P'''\left(x_{i},t\right)+\dots \\
+  \nonumber
+  P(x_{i-1},t) &= P\left(x_{i},t\right)+\frac{-h}{1!}P'\left(x_{i},t\right)+\frac{(-h)^{2}}{2!}P''\left(x_{i},t\right)+\frac{(-h)^{3}}{3!}P'''\left(x_{i},t\right)+\dots
+\end{align}
+Adding the two expressions:
+\begin{align}
+  \nonumber
+  P(x_{i+1},t) + P(x_{i-1},t)
+  &= P\left(x_{i},t\right)+\frac{h}{1!}P'\left(x_{i},t\right)+\frac{h^{2}}{2!}P''\left(x_{i},t\right)+\frac{h^{3}}{3!}P'''\left(x_{i},t\right) \\
+  &+P\left(x_{i},t\right)+\frac{-h}{1!}P'\left(x_{i},t\right)+\frac{(-h)^{2}}{2!}P''\left(x_{i},t\right)+\frac{(-h)^{3}}{3!}P'''\left(x_{i},t\right)+\dots \nonumber \\
+  \nonumber
+  &= 2P\left(x_{i},t\right)+h^{2}P''\left(x_{i},t\right)+\dots
+\end{align}
+Solving for $P''$:
+\begin{equation}
+  P''\left(x_{i},t\right)=\frac{P\left(x_{i+1},t\right)-2P\left(x_{i},t\right)+P\left(x_{i-1},t\right)}{h^{2}}+O\left(h^{2}\right)
+\end{equation}
+
+
+\textbf{Discretizing the time derivative:}
+Using backwards Taylor expansion to derive the backwards approximation for the time derivative. Setting $\Delta t = g$.
+\begin{equation}
+  P(x_{i},t)=P(x_{i},t+\Delta t)+\frac{g}{1!}P'(x_{i},t+\Delta t)+\frac{g^{2}}{2!}P''(x_{i},t+\Delta t)+\frac{g^{3}}{3!}P'''(x_{i},t+\Delta t)+\dots \nonumber
+\end{equation}
+Solving for $P'$:
+\begin{equation}
+  P'(x_{i},t+\Delta t)=\frac{P(x_{i},t+\Delta t)-P(x_{i},t)}{g}+\frac{g}{2!}P''(x_{i},t+\Delta t)+\dots \nonumber
+\end{equation}
+\begin{equation}
+  P'(x_{i},t+\Delta t)=\frac{P(x_{i},t+\Delta t)-P(x_{i},t)}{g}+O\left(g\right)
+\end{equation}
+% subsubsection discretization_using_taylor_series (end)
+
+\subsubsection{Error terms in discretized equation} % (fold)
+\label{ssub:error_terms_in_discretized_equation}
+\begin{question}
+  What are the error terms associated with these approximations?
+\end{question}
+
+The error terms are $O(\Delta x^2)$ for the spatial approximation and $O(\Delta t)$ for the time approximation.
+% subsubsection error_terms_in_discretized_equation (end)
+
+\subsubsection{Explicit form of discretized equation} % (fold)
+\label{ssub:explicit_form_of_discretized_equation}
+
+\begin{question}
+  Write the difference equation on explicit form, and outline a procedure for pressure solution.
+\end{question}
+
+Substituting the discretized differentials into the original equation:
+\begin{align}
+  \nonumber
+  \frac{\partial^{2}P}{\partial x^{2}} &= \frac{\phi \mu c}{k}\frac{\partial P}{\partial t} \\
+  \nonumber
+  \frac{P_{i+1}^{t}-2P_{i}^{t}+P_{i-1}^{t}}{\Delta x^{2}}
+  &=\frac{\phi\mu c}{k}\frac{P_{i}^{t+\Delta t}-P_{i}^{t}}{\Delta t}
+\end{align}
+The equation contains only one unknown, $P_{i,t+1}$, and can therefore be solved explicitly:
+\begin{equation}
+  P_{i}^{t+\Delta t}=P_{i}^{t}+\frac{\Delta t}{\Delta x^{2}}\frac{k}{\phi\mu c}\left[P_{i+1}^{t}-2P_{i}^{t}+P_{i-1}^{t}\right]
+\end{equation}
+
+The end blocks will be different, depending on the boundary conditions (which may be either pressure or flow rate).
+
+Solving it is trivial given a set of initial pressures.
+
+Given a 2D array where each row contains the pressures for each grid block, and the first row contains the initial pressures, we can simply use a for-loop to compute one row at a time using the values in the previous row.
+% subsubsection explicit_form_of_discretized_equation (end)
+
+
+\subsubsection{Implicit form of discretized equation} % (fold)
+\label{ssub:implicit_form_of_discretized_equation}
+
+\begin{question}
+  Write the difference equation on implicit form, and outline a procedure for pressure solution.
+\end{question}
+
+For the implicit solution, we change all time levels in the spatial approximations to $t+\Delta t$:
+\begin{equation}
+  \frac{P_{i+1}^{t+\Delta t}-2P_{i}^{t+\Delta t}+P_{i-1}^{t+\Delta t}}{\Delta x^{2}}=\frac{\phi\mu c}{k}\frac{P_{i}^{t+\Delta t}-P_{i}^{t}}{\Delta t}, \; i=1,\dots, N
+\end{equation}
+or
+\begin{equation}
+  a_{i}P_{i-1}^{t+\Delta t}+b_{i}P_{i}^{t+\Delta t}+c_{i}P_{i+1}^{t+\Delta t}=d_{i}
+\end{equation}
+which gives a set of $N$ equations with $N$ unknowns. These may be solved simultaneously using for example Gaussian elimination.
+% subsubsection implicit_form_of_discretized_equation (end)
+
+\subsubsection{Explicit form vs. implicit form} % (fold)
+\label{ssub:explicit_form_vs_implicit_form}
+
+\begin{question}
+  Why is the explicit form seldom used?
+\end{question}
+
+The explicit formulation is seldom used because it becomes unstable for large time steps. It has the following stability requirement:
+\begin{equation}
+  \Delta t \leq \frac{1}{2} \frac{\phi \mu c}{k} \Delta x^2
+\end{equation}
+The implicit solution on the other hand, is unconditionally stable for all time step sizes. So although the explicit solution is easier to use and the amount of work required for it is smaller, the computation will generally be faster for the implicit case because we can use larger time steps. Note though that the larger time steps also cause larger numerical error.
+
+% subsubsection explicit_form_vs_implicit_form (end)
+
+% subsection 1d_linear_horizontal_one_phase_diffusivity_equation (end)
+
+
+\subsection{1D linear horizontal, two phase flow equation} % (fold)
+\label{sub:1d_linear_horizontal_two_phase_flow_equation}
+
+\begin{question}
+  For two-phase flow of oil and gas in a horizontal, one-dimensional, linear porous medium, the flow equation may be written as:
+  \begin{align}
+    \frac{\partial}{\partial x}\left(\frac{kk_{ro}}{\mu_{o}B_{o}}\frac{\partial P_{o}}{\partial x}\right)-q_{o}'
+    &=\frac{\partial}{\partial t}\left(\frac{\phi S_{o}}{B_{o}}\right) \\
+    \frac{\partial}{\partial x}\left(\frac{kk_{rg}}{\mu_{g}B_{g}}\frac{\partial P_{g}}{\partial x}+R_{so}\frac{kk_{ro}}{\mu_{o}B_{o}}\frac{\partial P_{o}}{\partial x}\right)-q_{g}'-R_{so}q_{o}'
+    &=\frac{\partial}{\partial t}\left(\frac{\phi S_{g}}{B_{g}}+R_{so}\frac{\phi S_{o}}{B_{o}}\right)
+  \end{align}
+  where
+  \begin{align}
+    P_{cog} &= P_g - P_o \\
+    S_o + S_g &= 1
+  \end{align}
+\end{question}
+
+\subsubsection{Discretized form} % (fold)
+\label{ssub:discretized_form}
+\begin{center}
+  \includegraphics[]{illustrations/diffusivity/1d-discrete-transmissibility.pdf}
+\end{center}
+\textbf{Oil equation:}
+\begin{align}
+  \frac{\partial}{\partial x}\left(\frac{kk_{ro}}{\mu_{o}B_{o}}\frac{\partial P_{o}}{\partial x}\right)
+  &\equiv \text{Oil flow thorough the system} \nonumber \\
+  &= \underset{\text{flow out of block due to pressure diff.}}{\underbrace{T_{xo_{i+\frac{1}{2}}}\left(P_{o_{i+1}}-P_{o_{i}}\right)}}+\underset{\text{flow  in to block due to pressure diff.}}{\underbrace{T_{xo_{i-\frac{1}{2}}}\left(P_{o_{i-1}}-P_{o_{i}}\right)}} \nonumber \\
+  -q_o' &\equiv \text{Oil production} \nonumber \\
+  \frac{\partial}{\partial t}\left(\frac{\phi S_{o}}{B_{o}}\right)
+  &\equiv \text {Change in oil content (standard volume)} \nonumber \\
+  &= \underset{\text{change in oil content pr. unit of pressure}}{\underbrace{C_{poo_{i}}\left(P_{o_{i}}-P_{o_{i}}^{t}\right)}}
+  +\underset{\text{change in oil content pr. unit of gas saturation}}{\underbrace{C_{sgo_{i}}\left(S_{g_{i}}-S_{g_{i}}^{t}\right)}} \nonumber
+\end{align}
+Note that the last part of the last equation may also be written as $C_{sgo_{i}}\left(S_{o_{i}}^{t}-S_{o_{i}}\right)$. Then putting it all together:
+\begin{equation}
+  T_{xo_{i+\frac{1}{2}}}\left(P_{o_{i+1}}-P_{o_{i}}\right)
+  + T_{xo_{i-\frac{1}{2}}}\left(P_{o_{i-1}}-P_{o_{i}}\right)
+  - q_{o_i}'
+  = C_{poo_{i}}\left(P_{o_{i}}-P_{o_{i}}^{t}\right)
+  + C_{sgo_{i}}\left(S_{g_{i}}-S_{g_{i}}^{t}\right)
+\end{equation}
+
+\noindent\textbf{Gas equation:}
+\begin{align}
+  \nonumber
+  \frac{\partial}{\partial x}\left(\frac{kk_{rg}}{\mu_{g}B_{g}}\frac{\partial P_{g}}{\partial x}+R_{so}\frac{kk_{ro}}{\mu_{o}B_{o}}\frac{\partial P_{o}}{\partial x}\right)
+  \equiv               & \text{Gas flow thorough system (free+solution)} \\
+  \nonumber
+  =& \underset{\text{free gas flow out of block due to pressure diff.}}{\underbrace{T_{xg_{i+\frac{1}{2}}}\left[\left(P_{o_{i+1}}-P_{o_{i}}\right)+\left(P_{cog_{i+1}}-P_{cog_{i}}\right)\right]}} \\
+  \nonumber
+  +& \underset{\text{free gas flow in to block due to pressure diff.}}{\underbrace{T_{xg_{i-\frac{1}{2}}}\left[\left(P_{o_{i-1}}-P_{o_{i}}\right)+\left(P_{cog_{i-1}}-P_{cog_{i}}\right)\right]}}
+  -q_{g_{i}}' \\
+  \nonumber
+  +& \underset{\text{solution gas flow out of block}}{\underbrace{\left(R_{so}T_{xo}\right)_{i+\frac{1}{2}}\left(P_{o_{i+1}}-P_{o_{i}}\right)}} \\
+  \nonumber
+  +& \underset{\text{solution gas flow in to block}}{\underbrace{\left(R_{so}T_{xo}\right)_{i-\frac{1}{2}}\left(P_{o_{i-1}}-P_{o_{i}}\right)}} \\
+  \nonumber
+  -q_{g}' \equiv       & \text{Gas production (free)} \\
+  \nonumber
+  -R_{so}q_{o}' \equiv & \text{Gas production (solution)} \\
+  \nonumber
+  \frac{\partial}{\partial t}\left(\frac{\phi S_{g}}{B_{g}}+R_{so}\frac{\phi S_{o}}{B_{o}}\right)
+  \equiv               & \text{Change in gas content (free+solution)} \\
+  \nonumber
+  =& C_{pog_{i}}\left(P_{o_{i}}-P_{o_{i}}^{t}\right)+C_{sgg_{i}}\left(S_{g_{i}}-S_{g_{i}}^{t}\right)
+\end{align}
+Note that $\left[\left(P_{o_{i+1}}-P_{o_{i}}\right)+\left(P_{cog_{i+1}}-P_{cog_{i}}\right)\right]$ may also be written as $\left[P_{g_{i+1}}-P_{g_{i}}\right]$. Then putting it all together:
+
+\begin{align}
+  \nonumber
+  &T_{xg_{i+\frac{1}{2}}}\left[\left(P_{o_{i+1}}-P_{o_{i}}\right)+\left(P_{cog_{i+1}}-P_{cog_{i}}\right)\right] \\
+  \nonumber
+  +& T_{xg_{i-\frac{1}{2}}}\left[\left(P_{o_{i-1}}-P_{o_{i}}\right)+\left(P_{cog_{i-1}}-P_{cog_{i}}\right)\right]
+  -q_{g_{i}}'\\
+  \nonumber
+  +& \left(R_{so}T_{xo}\right)_{i+\frac{1}{2}}\left(P_{o_{i+1}}-P_{o_{i}}\right) \\
+  \nonumber
+  +& \left(R_{so}T_{xo}\right)_{i-\frac{1}{2}}\left(P_{o_{i-1}}-P_{o_{i}}\right) - \left( R_{so}q_{o}' \right)_i  \\
+  =& C_{pog_{i}}\left(P_{o_{i}}-P_{o_{i}}^{t}\right)+C_{sgg_{i}}\left(S_{g_{i}}-S_{g_{i}}^{t}\right)
+\end{align}
+
+% subsubsection discretized_form (end)
+
+\subsubsection{IMPES solution} % (fold)
+\label{ssub:impes_solution}
+\begin{question}
+  List the assumptions for IMPES solution, and outline briefly how we solve for pressures and saturations.
+\end{question}
+
+\textbf{Assumptions:}
+
+For the IMPES solution we let all coefficients and $P_{cow}$ be at time $t$, i.e. the values calculated in the previous timestep: $T_{xo}^t, T_{xg}^t, C_{poo}^t, C_{pog}^t, C_{sgo}^t, C_{sgg}^t, P_{cog}^t, R_{so}^t$. We substitute this into the derived discretized equations.
+
+\noindent\textbf{Implicit pressure:}
+
+We then add the oil- and gas equations to get the equation for a saturated saturated oil-gas system. We then multiply by some factor $\alpha$ to get rid of the saturations, and rewrite the equations as
+\begin{equation}
+  a_i P_{o_{i-1}} + b_i P_{o_i} + c_i P_{o_{i+1}} = d_i
+\end{equation}
+The resulting equation system may be solved for pressure using for example Gaussian elimination.
+
+\noindent\textbf{Explicit saturation:}
+
+We then need some new saturation values. We do this by solving either of the oil or gas equations for saturation, and simply inserting the newly calculated pressure values.
+
+% subsubsection impes_solution (end)
+
+\subsubsection{Solution by Newtonian iteration} % (fold)
+\label{ssub:solution_by_newtonian_iteration}
+\begin{question}
+  Outline \emph{briefly} how we can solve for pressures and saturations by Newtonian iteration (i.e. fully implicit solution).
+\end{question}
+
+Both the oil equation $F_o$ and gas equation $F_g$ depend on the pressures and saturations in blocks $i-1,i,i+1$:
+\begin{align}
+    F_{o_i} \left( P_{o_{i-1}}, P_{o_i}, P_{o_{i+1}}, S_{g_{i-1}}, S_{g_i}, S_{g_{i+1}} \right) & = 0 \\
+    F_{g_i} \left( P_{o_{i-1}}, P_{o_i}, P_{o_{i+1}}, S_{g_{i-1}}, S_{g_i}, S_{g_{i+1}} \right) & = 0
+\end{align}
+
+By first-order Taylor expansion (over both pressure and saturation) we arrive at two sets of equations, in total $2N$, with in total $2N$ equations. We then apply Newtonian iteration until we arrive at a solution with a sufficiently low residual.
+
+% subsubsection solution_by_newtonian_iteration (end)
+
+% subsection 1d_linear_horizontal_two_phase_flow_equation (end)
+
+\clearpage
+\subsection{1D horiontal, 3-phase oil, water, gas} % (fold)
+\label{sub:1d_horiontal_3_phase_oil_water_gas}
+
+\begin{question}
+  For a one-dimensional, horizontal, 3-phase oil, water, gas system, the general flow equations are:
+  \begin{align}
+    \frac{\partial}{\partial x}\left(\frac{kk_{ro}}{\mu_{o}B_{o}}\frac{\partial P_{o}}{\partial x}\right)-q_{o}'
+    &=\frac{\partial}{\partial t}\left(\frac{\phi S_{o}}{B_{o}}\right) \\
+    \frac{\partial}{\partial x}\left(\frac{kk_{rg}}{\mu_{g}B_{g}}\frac{\partial P_{g}}{\partial x}+R_{so}\frac{kk_{ro}}{\mu_{o}B_{o}}\frac{\partial P_{o}}{\partial x}\right)-q_{g}'-R_{so}q_{o}'
+    &=\frac{\partial}{\partial t}\left(\frac{\phi S_{g}}{B_{g}}+R_{so}\frac{\phi S_{o}}{B_{o}}\right) \\
+    \frac{\partial}{\partial x}\left(\frac{kk_{rw}}{\mu_{w}B_{w}}\frac{\partial P_{w}}{\partial x}\right)-q_{w}'
+    &=\frac{\partial}{\partial t}\left(\frac{\phi S_{w}}{B_{w}}\right) \\
+  \end{align}
+\end{question}
+
+\subsubsection{Physical meaning of terms} % (fold)
+\label{ssub:physical_meaning_of_terms}
+\begin{itemize}
+  \item $\frac{\partial}{\partial x}\left(\frac{kk_{ro}}{\mu_{o}B_{o}}\frac{\partial P_{o}}{\partial x}\right)$ -- Oil flow through system.
+  \item $-q_{o}'$ -- Well potential.
+  \item $\frac{\partial}{\partial t}\left(\frac{\phi S_{o}}{B_{o}}\right)$ -- Accumulation of oil.
+  \item $\frac{\partial}{\partial x}\left(\frac{kk_{rg}}{\mu_{g}B_{g}}\frac{\partial P_{g}}{\partial x}+R_{so}\frac{kk_{ro}}{\mu_{o}B_{o}}\frac{\partial P_{o}}{\partial x}\right)$ -- Transport of gas (free+solution).
+  \item $-q_{g}'$ -- Gas well potential.
+  \item $-R_{so}q_{o}'$ -- Oil well potential (solution gas).
+  \item $\frac{\partial}{\partial t}\left(\frac{\phi S_{g}}{B_{g}}+R_{so}\frac{\phi S_{o}}{B_{o}}\right)$ -- Accumulation of gas (free+solution).
+  \item $\frac{\partial}{\partial x}\left(\frac{kk_{rw}}{\mu_{w}B_{w}}\frac{\partial P_{w}}{\partial x}\right)$ -- Transport of water.
+  \item $-q_{w}'$ -- Well potential.
+  \item $\frac{\partial}{\partial t}\left(\frac{\phi S_{w}}{B_{w}}\right)$ -- Accumulation of water.
+\end{itemize}
+% subsubsection physical_meaning_of_terms (end)
+
+\subsubsection{Criteria for saturated flow, dependencies of $R_{so}$ and $B_o$} % (fold)
+\label{ssub:criteria_for_saturated_flow_dependencies_of_r__so_and_b_o_}
+
+\begin{question}
+  What are the criteria for \emph{saturated} flow? What are the functional dependencies of $R_{so}$ and $B_o$?
+\end{question}
+
+\noindent \textbf{Criteria:} $P_o = P_{bp}$ and $S_g > 0$. I.e. the oil pressure is equal to the bubble-point pressure and there is free gas in the system.
+
+\noindent \textbf{Dependencies:} $B_o=f(P_o)$ and $R_{so}=f(P_o)$. I.e. both the oil reservoir volume factor and the solution gas-oil ratio depend only on the oil pressure.
+
+\noindent \textbf{Primary unknowns:} $P_o, S_w, S_g$.
+% subsubsection criteria_for_saturated_flow_dependencies_of_r__so_and_b_o_ (end)
+
+\subsubsection{Criteria for undersaturated flow, dependencies of $R_{so}$ and $B_o$} % (fold)
+\label{ssub:criteria_for_undersaturated_flow_dependencies_of_r__so_and_b_o_}
+
+\begin{question}
+  What are the criteria for \emph{undersaturated} flow? What are the functional dependencies of $R_{so}$ and $B_o$?
+\end{question}
+
+\noindent \textbf{Criteria:} $P_o > P_bp$ and $S_g = 0$. I.e. the oil pressure is greater than the bubble point pressure and there is no free gas.
+
+\noindent \textbf{Dependencies:} $B_o = f(P_o, P_{bp})$ and $R_{so} = f(P_{bp})$.
+
+\noindent \textbf{Primary unknowns:} $P_o, P_{bp}, S_w$.
+
+% subsubsection criteria_for_undersaturated_flow_dependencies_of_r__so_and_b_o_ (end)
+
+\subsubsection{Equations for undersaturated flow} % (fold)
+\label{ssub:equations_for_undersaturated_flow}
+
+\begin{question}
+  Rewrite the equations above for undersaturated flow conditions.
+\end{question}
+
+Inserting $S_g = 0$ and striking all free gas terms -- i.e. two terms in the gas equation -- gives us the equation for undersaturated flow.
+
+% subsubsection equations_for_undersaturated_flow (end)
+
+\subsubsection{Pressure conditions} % (fold)
+\label{ssub:pressure_conditions}
+
+\begin{question}
+  For a one-dimensional, vertical ($z$), 3 phase oil, water, gas system, outline how initial pressures and saturations may be computed in a simulation model, assuming that equilibrium conditions apply:
+  \begin{itemize}
+    \item Sketch the reservoir, with a grid superimposed, including gas-oil-contact (GOC) and water-oil-contact (WOC).
+    \item Sketch the oil-gas and oil-water capillary pressure curves, and show the how the initial equilibrium pressures and saturations are determined in the continuous system.
+    \item Sketch the initial saturations as they are applied to the grid blocks.
+  \end{itemize}
+\end{question}
+
+\noindent \textbf{Continous:} On the pressure plot, any ($P_o - P_w$) is converted to $S_w$ using the oil-water capillary pressure curve, and any ($P_g - P_o$) is converted to $S_g$ using the oil-gas capillary curve.
+
+\noindent \textbf{Grid:} Average values of $S_w$ and $S_g$ over block height.
+
+\centerline{\includegraphics[]{illustrations/reservoirs/3-phase-grid-pressure-saturation.pdf}}
+
+\begin{center}
+  \includegraphics[width=0.45\textwidth]{illustrations/capillary-pressure-curves/oil-gas.pdf}
+  \includegraphics[width=0.45\textwidth]{illustrations/capillary-pressure-curves/oil-water.pdf}
+\end{center}
+
+% subsubsection pressure_conditions (end)
+
+% subsection 1d_horiontal_3_phase_oil_water_gas (end)
+
+\clearpage
+\subsection{Properties} % (fold)
+\label{sub:properties}
+
+\begin{question}
+  The discretized form of the left hand side of the oil equation may be written in terms of transmissibilities and pressure differences, as
+  \begin{equation}
+    T_{xo_{i+\frac{1}{2}}} \left( P_{o_{i+1}} - P_{o_i} \right)
+   +T_{xo_{i-\frac{1}{2}}} \left( P_{o_{i-1}} - P_{o_i} \right)
+  \end{equation}
+  Using the following transmissibility as example,
+  \begin{equation}
+    T_{xo_{i-\frac{1}{2}}} = \frac{2k_{i-\frac{1}{2}} \lambda_{o_{i-\frac{1}{2}}}}
+      {\Delta x_i \left( \Delta x_i + \Delta x_{i-1} \right)}
+  \end{equation}
+\end{question}
+
+\subsubsection{Averaging method for permeability} % (fold)
+\label{ssub:averaging_method}
+
+\begin{question}
+  What type of averaging method is normally applied to absolute permeability between grid blocks? Why? Write the expression for average permeability between grid blocks $i-1$ and $i$.
+\end{question}
+
+Harmonic average is used. It is used because it tends strongly towards the smallest element in the list and therefore thends to mitigate the impact of large outliers and aggravete the impact of small ones. It therefore reduces the chance of overestimating the permeability.
+
+\begin{equation}
+  \bar{k} = \frac{\Delta x_i + \Delta x_{i+1}}{\frac{\Delta x_{i+1}}{k_{i+1}} + \frac{\Delta x_i}{k_i}}
+\end{equation}
+% subsubsection averaging_method (end)
+
+\subsubsection{Upstream mobility term} % (fold)
+\label{ssub:upstream_mobility_term}
+
+\begin{question}
+  Write down an expression for the selection of the conventional \emph{upstream mobility term} for use in the transmissibility term of the oil equation above for flow between grid blocks $i-1$ and $i$.
+\end{question}
+
+\begin{equation}
+  \lambda_{i-\frac{1}{2}} =
+  \begin{cases}
+    \lambda_{o_{i-1}} & \text{ if } P_{o_{i-1}} \geq P_{o_i} \\
+    \lambda_{o_i}     & \text{ if } P_{o_{i-1}} < P_{o_i} d
+  \end{cases}
+\end{equation}
+% subsubsection upstream_mobility_term (end)
+
+\subsubsection{Buckley-Leverett saturation profile} % (fold)
+\label{ssub:buckley_leverett_saturation_profile}
+
+\begin{question}
+  Make a sketch of a typical Buckley-Leverett saturation profile resulting from the displacement of oil by water (ie. analytical solution). Then, show how the corresponding profile, if calculated in a numerical simulation model, typically is influenced by the choice of mobilities between the grid blocks (sketch typical curves for saturation profiles computed with upstream or average mobility terms, respectively).
+\end{question}
+
+\begin{center}
+  \includegraphics[]{illustrations/saturation-profiles/buckley-leverett-average-upstream.pdf}
+\end{center}
+
+% subsubsection buckley_leverett_saturation_profile (end)
+
+% subsection properties (end)
+
+% section the_diffusivity_equation (end)

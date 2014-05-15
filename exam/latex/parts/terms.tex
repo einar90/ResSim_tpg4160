@@ -1,0 +1,38 @@
+% -*- root: ../ressim.tex -*-
+
+\section{Terms} % (fold)
+\label{sec:terms}
+
+\begin{description}
+  \item[Control volume:] A small volume used in derivation of e.g. the continuity equation.
+  \item[Mass balance:] Principle applied to control volume in derivation of continuity (the law of mass conservation).
+  \item[Taylor series:] Expansion formula used for derivation of difference approximations:
+    \begin{equation}
+      f(x+h) = f(x) + h f'(x) + \frac{h^2}{2!} f''(x) + \frac{h^3}{3!} f'''(x) + \dots
+    \end{equation}
+  \item[Numerical dispersion:] Error term associated with finite difference approximations derived by use of Taylor series.
+  \item[Explicit:] As applied to discretization of diffusivity equation: time level used in Taylor series approximation is $t$. Generally: equation formulation that may be solved directly.
+  \item[Implicit:] As applied to discretization of diffusivity equation: time level used in Taylor series approximation is $t+\Delta t$. Generally: equation formulation that requires the system to be solved as a whole (e.g. by Gaussian elimination).
+  \item[Stability:] An unconditionally stable discretization will be stable for all step sizes. Discretizations that are conditionally stable will become \emph{unstable} (i.e. give very wrong results) for too large step sizes. In terms of the diffusivity equation: the explicit form is conditionally stable while the implicit formulation is unconditionally stable.
+  \item[Upstream weighing:] Descriptive term for the choice of mobility terms in transmissibilities.
+  \item[Variable bubble point:] Term that indicates that the discretization of undersaturated flow equation includes the possibility for bubble point to change, such as for the case of gas injection in undersaturated oil.
+  \item[Harmonic average:] Averaging method used for permeabilities when flow is in series.
+  \item[Transmissibility:] Flow coefficient in discrete equations that when multiplied with pressure difference between grid blocks yield flow rate.
+  \item[Storage coefficient:] Flow coefficient in discrete equ that when multiplied with pressure change or saturation change in a time step yields mass change in grid block.
+  \item[Coefficient matrix:] The matrix of coefficients in the set of linear equations, i.e. the matrix $\mathbf{A}$ in $\mathbf{A}x=b$.
+  \item[IMPES:] An approximate solution method for two or three phase equations where all coefficients and capillary pressures are computed at the current time level, generating the coefficient matrix. Thus, iterations are required on the solution. IMPES = IMplicit Pressure, Explicit Saturation.
+  \item[Fully implicit:] A solution method for two or three phase equations where all coefficients and capillary pressures are computed at the current time level generating the coefficient matrix. Thus, iterations are required on the solution.
+  \item[Corss section:] An $x-z$ (or any other combination of two axes) section of a reservoir.
+  \item[Coning:] The tendency of gas and water to form a cone shaped flow channel into the well due to pressure drawdown in the close neighbourhood.
+  \item[PI:] The Productivity Index of a well, descibing the reservoir ability to deliver fluids to the well. $PI=q/\Delta P$.
+  \item[Stone's relative permeability models:] Methods for generating 3-phase relative permeabilities for oil based on 2-phase data.
+  \item[Discreization:] Converting of a continous PDE to a discrete form. Methods for doing this includes Taylor expansion.
+  \item[History matcing:] In simulation implies the adjustment of reservoir parameters so that the computed results match the observed data.
+  \item[Prediction:] Computing future performance of reservoir; normally following a history matching.
+  \item[Black oil:] Simplified hydrocarbon description model which includes two phases (oil, gas) and only two components (oil, gas), with mass transfer between the components through the solution gas-oil ratio parameter.
+  \item[Compositional:] Detaied hydrocarbon description model which includes two phases but $N$ components (methane, ethane, propane, ...).
+  \item[Dual porosity:] Denotes a reservoir with two porosity systems; normally a fractured reservoir.
+  \item[Dual permeability:] Denotes a system with two permeabilities; i.e. block-to-block contact as well as permeability within blocks, in a addition to two porosities. Normally a fractured reservoir.
+\end{description}
+
+% section terms (end)

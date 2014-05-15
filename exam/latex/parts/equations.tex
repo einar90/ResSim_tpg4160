@@ -1,0 +1,64 @@
+% -*- root: ../ressim.tex -*-
+
+\section{Equations} % (fold)
+\label{sec:equations}
+
+\subsection{Mass balance equation} % (fold)
+\label{sub:mass_balance_equation}
+
+\begin{question}
+  Write down the mass balance equation.
+\end{question}
+
+For constant cross sectional area:
+\begin{equation}
+  - \frac{\partial}{\partial x} \left( \rho u \right)
+  = \frac{\partial }{\partial t} \left( \phi \rho \right)
+\end{equation}
+% subsection mass_balance_equation (end)
+
+\subsection{Fluid density in relation to pressure} % (fold)
+\label{sub:fluid_density_in_relation_to_pressure}
+
+\begin{question}
+  List 3 commonly used expressions for relating fluid density to pressure.
+\end{question}
+
+\emph{Compressibility definition:}
+\begin{equation}
+  c_f = - \frac{1}{V} \left( \frac{\partial V}{\partial P} \right)_T
+\end{equation}
+\emph{Real gas law:}
+\begin{equation}
+  \nonumber
+  PV = nZRT; \quad P_s V_s = n Z_s R T_s \implies PV = T \frac{V_s}{T_s} \frac{P_s}{Z_s} \frac{Z}{P}
+\end{equation}
+Assuming constant temperature and sumstituting $V=m/rho_g$
+\begin{equation}
+  \frac{1}{\rho_g} = \frac{1}{\rho_{gs}} \frac{P_s}{Z_s} \frac{Z}{P} \implies \rho_g = \rho_{gs} \frac{Z_s}{P_s} \frac{P}{Z}
+\end{equation}
+\emph{Black oil:}
+\begin{equation}
+  \rho_o = \frac{\rho_{os}+\rho_{gs}R_{so}}{B_o}
+\end{equation}
+% subsection fluid_density_in_relation_to_pressure (end)
+
+\subsection{Pressure in relation to velocity: Darcy's law and the Forchheimer equation} % (fold)
+\label{sub:pressure_in_relation_to_velocity_darcy_s_law}
+
+\begin{question}
+  Write down the most common relationship between velocity and pressure, and write an alternative relationship used for high-velocity fluids.
+\end{question}
+
+Darcy's law in 1D:
+\begin{equation}
+  u = - \frac{k}{\mu} \left( \frac{\partial P}{\partial  x} - \rho g \sin \alpha \right)
+\end{equation}
+Forchheimer equation, for high-velocity fluids:
+\begin{equation}
+  - \frac{\partial P}{\partial  x} = u \frac{\mu}{k} + \beta u''
+\end{equation}
+
+% subsection pressure_in_relation_to_velocity_darcy_s_law (end)
+
+% section equations (end)
