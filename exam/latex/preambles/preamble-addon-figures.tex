@@ -17,6 +17,14 @@
 \tikzstyle{axis}   = [-latex,black!55]
 
 
+\tikzset{arrowmid/.style={
+        decoration={
+            markings,
+            mark=at position #1 with {\arrow{>}}},postaction={decorate}
+    }
+}
+
+
 \tikzset{three sided bottom/.style={
         draw=none,
         append after command={

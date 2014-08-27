@@ -107,6 +107,61 @@ Equations needed:
 % subsubsection derivation (end)
 
 
+\subsubsection{Derivation using black oil density} % (fold)
+\label{ssub:derivation_using_black_oil_density}
+
+\begin{question}
+  Derive the following partial differential equation:
+  \begin{equation}
+    \frac{\partial }{\partial x} \left( \frac{k}{\mu B} \frac{\partial P}{\partial x} \right)
+    = \phi  \left( \frac{c_r}{B} + \frac{d (1/B)}{d P} \right) \frac{\partial P}{\partial t}
+  \end{equation}
+\end{question}
+
+Equations needed:
+\begin{itemize}
+  \item Continuity equation: $-\frac{\partial }{\partial x} (\rho v) = \frac{\partial }{\partial t} (\rho \phi)$.
+  \item Darcy's law: $v = - \frac{k}{\mu} \frac{\partial P}{\partial x}$.
+  \item Rock compressibility: $c_r \phi = \frac{\partial \phi}{\partial P}$.
+  \item Fluid density: $\rho = \frac{\rho_{oS} + \rho_{gS}R_{so}}{B_o} = \frac{constant}{B_o} = \frac{\gamma}{B}$ for undersaturated flow.
+\end{itemize}
+
+Substituting Darcy's into continuity:
+\[
+  \frac{\partial }{\partial x} \left(\rho \frac{k}{\mu} \frac{\partial P}{\partial x} \right)
+  = \frac{\partial }{\partial t} (\rho \phi)
+\]
+
+\textbf{Left side:}Substituting for density:
+\[
+  \frac{\partial }{\partial x} \left(\rho \frac{k}{\mu} \frac{\partial P}{\partial x} \right)
+  =\gamma\frac{\partial}{\partial x}\left(\frac{k}{B\mu}\frac{\partial P}{\partial x}\right)
+\]
+
+\textbf{Right sie:} Substituting for density:
+\[
+  \frac{\partial }{\partial t} (\rho \phi)
+  = \gamma\frac{\partial}{\partial t}\left(\frac{\phi}{B}\right)
+  =\gamma\left[\frac{1}{B}\frac{\partial\phi}{\partial t}+\phi\frac{\partial(1/B)}{\partial t}\right]
+\]
+Expanding and substituting for pore compressibility:
+\[
+  =\gamma\left[\frac{1}{B}\frac{\partial\phi}{\partial P}\frac{\partial P}{\partial t}+\phi\frac{\partial(1/B)}{\partial P} \frac{\partial P}{\partial t} \right]
+  =\gamma\phi\left[\frac{c_r}{B}+\frac{\partial(1/B)}{\partial P}\right] \frac{\partial P}{\partial t}
+\]
+
+\textbf{Right side = Left side:}
+\[
+ \gamma\frac{\partial}{\partial x}\left(\frac{k}{B\mu}\frac{\partial P}{\partial x}\right)
+ = \gamma\phi\left[\frac{c_r}{B}+\frac{\partial(1/B)}{\partial P}\right] \frac{\partial P}{\partial t}
+\]
+\begin{equation}
+  \frac{\partial}{\partial x}\left(\frac{k}{B\mu}\frac{\partial P}{\partial x}\right)
+ = \phi\left[\frac{c_r}{B}+\frac{\partial(1/B)}{\partial P}\right] \frac{\partial P}{\partial t}
+\end{equation}
+% subsubsection derivation_using_black_oil_density (end)
+
+
 
 \subsubsection{Applicable system} % (fold)
 \label{ssub:applicable_system}
@@ -165,7 +220,7 @@ Solving for $P''$:
 \textbf{Discretizing the time derivative:}
 Using backwards Taylor expansion to derive the backwards approximation for the time derivative. Setting $\Delta t = g$.
 \begin{equation}
-  P(x_{i},t)=P(x_{i},t+\Delta t)+\frac{g}{1!}P'(x_{i},t+\Delta t)+\frac{g^{2}}{2!}P''(x_{i},t+\Delta t)+\frac{g^{3}}{3!}P'''(x_{i},t+\Delta t)+\dots \nonumber
+  P(x_{i},t)=P(x_{i},t+\Delta t)+\frac{-g}{1!}P'(x_{i},t+\Delta t)+\frac{(-g)^{2}}{2!}P''(x_{i},t+\Delta t)+\frac{(-g)^{3}}{3!}P'''(x_{i},t+\Delta t)+\dots \nonumber
 \end{equation}
 Solving for $P'$:
 \begin{equation}
@@ -355,6 +410,12 @@ The resulting equation system may be solved for pressure using for example Gauss
 
 We then need some new saturation values. We do this by solving either of the oil or gas equations for saturation, and simply inserting the newly calculated pressure values.
 
+\noindent \textbf{Limitations of the IMPES solution:} The approximations made in the IMPES method, namely the evaluation of coefficients at old time level when solving for pressures and saturations at a new time level, puts restrictions on the solution which some times may be severe. Obviously, the greatest implications are on the saturation dependent parameters, relative permeability and capillary pressure. These change rapidly with changing saturation, and therefore IMPES may not be well suited for problems where rapid variation takes place.
+
+IMPES is mainly used for simulation of field scale systems, with relatively large grid blocks and slow rates of change. It is normally not suited for simulation of rapid changes close to wells, such as coning studies, or other sysetms of rapid changes.
+
+However, provided that time steps are kept small, IMPES provides accurate and stable solutions to a long range of reservoir problems.
+
 % subsubsection impes_solution (end)
 
 \subsubsection{Solution by Newtonian iteration} % (fold)
@@ -432,7 +493,7 @@ By first-order Taylor expansion (over both pressure and saturation) we arrive at
 
 \noindent \textbf{Dependencies:} $B_o = f(P_o, P_{bp})$ and $R_{so} = f(P_{bp})$.
 
-\noindent \textbf{Primary unknowns:} $P_o, P_{bp}, S_w$.
+\noindent \textbf{Primary unknowns:} $P_o, P_{bp}, S_w$. Without gas injection: $P_o, S_w, S_g$.
 
 % subsubsection criteria_for_undersaturated_flow_dependencies_of_r__so_and_b_o_ (end)
 
@@ -498,7 +559,7 @@ Inserting $S_g = 0$ and striking all free gas terms -- i.e. two terms in the gas
   What type of averaging method is normally applied to absolute permeability between grid blocks? Why? Write the expression for average permeability between grid blocks $i-1$ and $i$.
 \end{question}
 
-Harmonic average is used. It is used because it tends strongly towards the smallest element in the list and therefore thends to mitigate the impact of large outliers and aggravete the impact of small ones. It therefore reduces the chance of overestimating the permeability.
+Harmonic average is used. It stems from integration of the Darcy equation between block centers.
 
 \begin{equation}
   \bar{k} = \frac{\Delta x_i + \Delta x_{i+1}}{\frac{\Delta x_{i+1}}{k_{i+1}} + \frac{\Delta x_i}{k_i}}

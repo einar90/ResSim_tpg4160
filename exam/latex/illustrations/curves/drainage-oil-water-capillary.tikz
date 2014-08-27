@@ -1,0 +1,19 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+
+  % Axes
+  \draw [-latex] (0,0) -- (5,0) node [at end, anchor=west] {$S_w$};
+  \draw [-latex] (0,0) -- (0,6) node [at end, anchor=east] {$P_{cow}$};
+
+  \draw [dotted] (1,6) -- (1,0) node [at end, anchor=north] {$S_{wir}$};
+
+  \draw [] (1,6)   edge [in=180,out=-90] (4.5,1);
+  \draw [] (4.5,1) edge [in=90,out=0] (4.6,.9) node [anchor=west] {$P_{cd}$} ;
+  \draw [] (4.6,.9) -- (4.6,0) node [at end, anchor=north] {1.0};
+
+  \draw [->] (2.3,2) -- (2.25,2.05);
+
+
+
+\end{tikzpicture}

@@ -1,0 +1,24 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+
+  % Kr - axes
+  \draw (0,0) rectangle (5,6);
+  \node [anchor=west]  at (5,0.0) {$S_o$};
+  \node [anchor=north] at (4,0) {$1-S_{gc}$};
+  \node [anchor=east]  at (0,6) {$K_r$};
+
+  % Kr - Asymptopte
+  \draw [dotted] (1,5) -- (1,0) node [at end, anchor=north] {$S_{org}$};
+
+  % Kr - oil curve
+  \draw [red]  (1,5) edge[in=180,out=-90] (4,0);
+  \draw [->,red,text=black] (1.22,2.9) -- (1.2,3) node [anchor=west] {$k_{rg}$};
+
+  % Kr - water curve
+  \draw [blue] (5,6) edge[in=0, out=-90] (1,0);
+  \draw [->,blue, text=black] (4.03,1.9) -- (4,1.85) node [anchor=east] {$k_{rog}$};
+
+
+
+\end{tikzpicture}

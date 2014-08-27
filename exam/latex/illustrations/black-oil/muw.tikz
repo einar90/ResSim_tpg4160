@@ -1,0 +1,9 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+  % Axes
+  \draw [-latex] (0,0) -- (4,0) node [at end, anchor=west] {$P$};
+  \draw [-latex] (0,0) -- (0,4) node [at end, anchor=east] {$\mu_w$};
+
+  \draw [] (.6, 2) -- (3.5, 2.5);
+\end{tikzpicture}

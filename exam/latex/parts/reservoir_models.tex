@@ -1,0 +1,28 @@
+% -*- root: ../ressim.tex -*-
+
+\section{Reservoir models} % (fold)
+\label{sec:reservoir_models}
+
+\begin{question}
+  Normally, we use either a \emph{conventional} model or a \emph{fractured} model in a simulation of a reservoir.
+\end{question}
+
+A conventional model has one porosity and one permeability system, with one flow equation for each component flowing.
+
+A fractured model has two porosities and two permeabilities. Most of the liquids are in the matrix system, while most of the flow capacity is in the fracture system. Requires two flow equations for each component flowing.
+
+\begin{question}
+  How can identify a fractured reservoir from standard reservoir data?
+\end{question}
+
+\begin{equation}
+  k_{core} \ll k_{welltest}
+\end{equation}
+
+\begin{question}
+  Explain briefly the primary concept used in deriving the flow equations for a dual porosity model.
+\end{question}
+
+The matrix system supplies fluids to the fracture system, by whatever mechanisms present (depletion, gravity, drainage, imbibition, diffusion, ...), and the francture system transports the fluids to the wells. Some transport may also occure in the matrix system, from block to block, provided that there is sufficient contact.
+
+% section reservoir_models (end)

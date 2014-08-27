@@ -26,7 +26,7 @@ For constant cross sectional area:
 
 \emph{Compressibility definition:}
 \begin{equation}
-  c_f = - \frac{1}{V} \left( \frac{\partial V}{\partial P} \right)_T
+  c_f = - \frac{1}{V} \left( \frac{\partial V}{\partial P} \right)_T = \frac{1}{\rho} \left( \frac{\partial  \rho}{\partial P} \right)
 \end{equation}
 \emph{Real gas law:}
 \begin{equation}
@@ -43,6 +43,16 @@ Assuming constant temperature and sumstituting $V=m/rho_g$
 \end{equation}
 % subsection fluid_density_in_relation_to_pressure (end)
 
+
+\subsection{Porosity in relation to pressure} % (fold)
+\label{sub:porosity_in_relation_to_pressure}
+Rock compressibility:
+\begin{equation}
+  c_r = \frac{1}{\phi} \left( \frac{\partial \phi}{\partial P} \right)_T
+\end{equation}
+
+% subsection porosity_in_relation_to_pressure (end)
+
 \subsection{Pressure in relation to velocity: Darcy's law and the Forchheimer equation} % (fold)
 \label{sub:pressure_in_relation_to_velocity_darcy_s_law}
 
@@ -54,11 +64,44 @@ Darcy's law in 1D:
 \begin{equation}
   u = - \frac{k}{\mu} \left( \frac{\partial P}{\partial  x} - \rho g \sin \alpha \right)
 \end{equation}
-Forchheimer equation, for high-velocity fluids:
+Forchheimer equation, for high-velocity fluids (horizontal flow):
 \begin{equation}
   - \frac{\partial P}{\partial  x} = u \frac{\mu}{k} + \beta u''
 \end{equation}
-
 % subsection pressure_in_relation_to_velocity_darcy_s_law (end)
+
+
+\subsection{Black oil fluid densities} % (fold)
+\label{sub:black_oil_fluid_densities}
+
+\begin{question}
+  Write expressions for reservoir densities for the three fluids (oil, gas, water) in terms of $B_o, B_g, B_w, R_{so}, \rho_{oS}, \rho_{gS}, \rho_{wS}$.
+\end{question}
+
+\begin{align}
+  \rho_o &= \frac{\rho_{oS} + \rho_{gS}R_{so}}{B_o} \\
+  \rho_g &= \frac{\rho_{gS}}{B_g} \\
+  \rho_w &= \frac{\rho_{wS}}{B_w}
+\end{align}
+
+\begin{question}
+  Write the expression for the density of the part of the reservoir oil that remains liquid at the surface.
+\end{question}
+
+\begin{equation}
+  \rho_{oL} = \frac{\rho_{oS}}{B_o}
+\end{equation}
+
+\begin{question}
+  Write the expression for the density of the part of the reservoir oil that becomes gas at the surface.
+\end{question}
+
+\begin{equation}
+  \rho_{oG} = \frac{R_{so \rho_o}}{B_o}
+\end{equation}
+
+
+
+% subsection black_oil_fluid_densities (end)
 
 % section equations (end)

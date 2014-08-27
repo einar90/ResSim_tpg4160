@@ -1,0 +1,52 @@
+% -*- root: ../ressim.tex -*-
+
+\section{Summary} % (fold)
+\label{sec:summary}
+
+\subsection{The diffusivity equation} % (fold)
+\label{sub:the_diffusivity_equation}
+
+For oil water systems:
+\begin{itemize}
+  \item The variables on the right side, for oil and water eqaution respectively, is $C_{poo}, C_{swo}$ and $C_{pow}, C_{sww}$.
+  \item The only variables are $P_o$ and $S_w$. The water pressures need to be converted to oil pressure via capillary pressure.
+\end{itemize}
+% subsection the_diffusivity_equation (end)
+
+
+\subsection{Permeability averaging} % (fold)
+\label{sub:permeability_averaging}
+The harmonic average is used based on derivation of average permeability of series flow, assuming steady flow and that the Darcy equation holds.
+% subsection permeability_averaging (end)
+
+
+\subsection{Criteria for saturated and undersaturated flow} % (fold)
+\label{sub:criteria_for_saturated_and_undersaturated_flow}
+
+\begin{tabular}{l|lll}
+\toprule
+Flow & Criteria & Dependencies & Primary unknowns \\
+\midrule
+Saturated & $P_o = P_{bp}, S_g >0$ & \parbox[t]{4cm}{$ B_o = f(P_o)$ \\ $R_{so} = f(P_o)$} & $P_o,S_w,S_g$ \\
+\midrule
+Undersaturated & $P_o \geq P_{bp}, S_{g=0}$ & \parbox[t]{4cm}{$ B_o = f(P_o,P_{bp})$ \\ $R_{so} = f(P_{bp})$} & $P_o, P_{bp}, S_w$ \\
+\bottomrule
+\end{tabular}
+
+% subsection criteria_for_saturated_and_undersaturated_flow (end)
+
+
+\subsection{Black oil fluid flow} % (fold)
+\label{sub:black_oil_fluid_flow}
+Oil:
+\begin{equation}
+  \frac{\partial }{\partial x} \left( \frac{kk_{ro}}{\mu_o B_o} \frac{\partial P_o}{\partial x} \right)
+  = \frac{\partial }{\partial t} \left( \frac{\phi S_o}{B_o} \right)
+\end{equation}
+Gas:
+\begin{equation}
+  \frac{\partial }{\partial x} \left( R_{so} \frac{kk_{ro}}{\mu_o B_o} \frac{\partial P_o}{\partial x} + \frac{kk_{rg}}{\mu_g B_g} \frac{\partial P_g}{\partial x} \right)
+\end{equation}
+% subsection black_oil_fluid_flow (end)
+
+% section summary (end)

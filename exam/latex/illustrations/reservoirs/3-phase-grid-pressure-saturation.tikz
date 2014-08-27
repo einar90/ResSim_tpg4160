@@ -26,8 +26,8 @@
 
   % Annotations
   \draw [] (5,9.5) edge[out=180,in=30,->] (4.7,9) node [anchor=west,font=\small] {$P_w=P_{ref}+(z-z_{ref})\rho_w g$};
-  \draw [] (6,5) edge[out=45,in=-170,->] (8,7) node [anchor=north,font=\small,fill=white,inner sep=.2em] {$(P_g)_{GOC}(P_o)_{GOC}+P_{dog}$};
-  \draw [] (6.5,2) edge[out=-90,in=120,->] (8.5,1) node [anchor=south,font=\small,fill=white,inner sep=.2em] {$(P_o)_{WOC} ) (P_w)_{WOC} + P_{dow}$};
+  \draw [] (6,5) edge[out=45,in=-170,->] (8,7) node [anchor=north,font=\small,fill=white,inner sep=.2em] {$(P_g)_{GOC}=(P_o)_{GOC}+P_{dog}$};
+  \draw [] (6.5,2) edge[out=-90,in=120,->] (8.5,1) node [anchor=south,font=\small,fill=white,inner sep=.2em] {$(P_o)_{WOC} = (P_w)_{WOC} + P_{dow}$};
 
 
 

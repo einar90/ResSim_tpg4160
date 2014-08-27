@@ -1,0 +1,64 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+  % Axes
+  \draw [thick] (0,0)  node [anchor=east]  (left)  {100\% water}
+             -- (60:6) node [anchor=south] (top)   {100\% gas}
+             -- (6,0)  node [anchor=west]  (right) {100\% oil}
+             -- (0,0);
+
+  \draw [|-|] (0,-2) -- (6,-2)
+        node [at start, anchor=north] {0.0}
+        node [midway,   anchor=north] {$S_o$}
+        node [at end,   anchor=north] {1.0};
+
+
+  \draw [|-|] (-4,0) -- ($ (-4,0) + (60:6) $)
+        node [at start, anchor=east] {0.0}
+        node [midway,   anchor=east] {$S_g$}
+        node [at end,   anchor=east] {1.0};
+
+  % Minimum liquid saturation under gas displacement
+  \node (hor-top-right) at ($ (6,0)+(120:3.5) $) {};
+  \node (hor-top-left)  at ($ (0,0)+(60:3.5) $)  {};
+  \draw [dotted] (hor-top-right.center) -- (hor-top-left.center);
+  \draw [overbrace] ($ (60:3.5) + (-.1,0) $) -- ($ (60:6) + (-.1,0)$) node [midway, anchor=east, font=\small, text width=3cm] {Minimum liquid saturation under gas displacement.};
+
+  % Minumum oil plus gas saturation under water displacement
+  \node (bottom-left-right) at (2.5,0)                {};
+  \node (bottom-left-left)  at ($ (0,0) + (60:2.5) $) {};
+  \draw [dotted] (bottom-left-left.center) -- (bottom-left-right.center);
+  \draw [underbrace] (0,-.1) -- (2.5,-.1) node [midway, anchor=north, font=\small, text width=3.2cm] {Minumum oil plus gas saturation under water displacement.};
+
+  % S_or
+  \node (sor-bottom) at (0.6,0)                 {};
+  \node (sor-top)    at ($ (6,0) + (120:5.5) $) {};
+  \draw [dotted] (sor-bottom.center) -- (sor-top.center);
+  \draw [underbrace] ($ (sor-top.center) + (.05,.05) $) -- ($ (0,0) + (60:6) + (.05,.05) $) node [midway, anchor=west] {$S_{or}$};
+
+  % S_wir
+  \node (wir-bot) at (5,0)                {};
+  \node (wir-top) at ($ (0,0) + (60:5) $) {};
+  \draw [dotted] (wir-top.center) -- (wir-bot.center);
+  \draw [underbrace] (5,-.1) to (6,-.1) node [anchor=north east] {$S_{wir}$};
+
+  % permeabilities
+  \draw [blue, thick] ($(bottom-left-right) + (120:1.2)$) edge[in=180,out=90] ($ (wir-bot) + (120:3.3) $);
+  \draw [blue, thick] ($(bottom-left-right) + (120:0.8)$) edge[in=180,out=90] ($ (wir-bot) + (120:2.9) $);
+  \draw [blue, thick] ($(bottom-left-right) + (120:0.3)$) edge[in=180,out=90] ($ (wir-bot) + (120:2.5) $);
+  \draw [blue, thick] (2.7,0)                             edge[in=180,out=90] ($ (wir-bot) + (120:2.0) $);
+  \draw [blue, thick] (3.1,0)                             edge[in=180,out=90] ($ (wir-bot) + (120:1.7) $);
+  \draw [blue, thick] (3.5,0)                             edge[in=180,out=90] ($ (wir-bot) + (120:1.3) $);
+  \draw [blue, thick] (4.0,0)                             edge[in=180,out=90] ($ (wir-bot) + (120:1.0) $);
+  \draw [blue, thick] (4.5,0)                             edge[in=180,out=90] ($ (wir-bot) + (120:0.6) $);
+
+\node [anchor=west,font=\tiny] at ($ (wir-bot) + (120:3.3) $) {0.1};
+\node [anchor=west,font=\tiny] at ($ (wir-bot) + (120:2.9) $) {0.2};
+\node [anchor=west,font=\tiny] at ($ (wir-bot) + (120:2.5) $) {0.3};
+\node [anchor=west,font=\tiny] at ($ (wir-bot) + (120:2.0) $) {0.5};
+\node [anchor=west,font=\tiny] at ($ (wir-bot) + (120:1.7) $) {0.6};
+\node [anchor=west,font=\tiny] at ($ (wir-bot) + (120:1.3) $) {0.7};
+\node [anchor=west,font=\tiny] at ($ (wir-bot) + (120:1.0) $) {0.8};
+\node [anchor=west,font=\tiny] at ($ (wir-bot) + (120:0.6) $) {0.9};
+
+\end{tikzpicture}

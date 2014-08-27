@@ -37,8 +37,6 @@ depending on the equation numbering scheme.
 \begin{center}
   \includegraphics[]{illustrations/matrix-structures/1d-1phase.pdf}
 \end{center}
-
-
 % subsection one_dimensional_ (end)
 
 
@@ -114,7 +112,50 @@ Bandwidth, when numbering along first $x$, then  $y$, then $z$:
 \begin{center}
   \includegraphics[]{illustrations/matrix-structures/3d-1phase.pdf}
 \end{center}
-
 % subsection three_dimensional_one_phase_flow (end)
+
+
+\subsection{Solving 1D, one phase flow system} % (fold)
+\label{sub:solving_1d_one_phase_flow_system}
+
+\begin{question}
+  For the 1D system above, outline how it is solved for pressures using the Gaussian elimination method.
+\end{question}
+A $9\times 9$ matrix is here shown as an example:
+\small{%
+\[
+  \begin{bmatrix}
+    b & c & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    a & b & c & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & a & b & c & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & a & b & c & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & a & b & c & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & a & b & c & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & a & b & c & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & a & b & c \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & a & b \\
+  \end{bmatrix}
+\]
+}
+
+We see that our matrix only consists of 3 non-zero diagonal, thus our Gaussian elimination algorithm may be simplified to operate only on the band itself, and ignore the rest of the matrix.
+
+We begin by foreward eliminating the lower diagonal ($a$):
+\[
+  b_i = b_i - c_{i-1} (a_i / b_{i-1}), \quad i=2,N
+\]
+\[
+  d_i = d_i - d_{i-1} (a_i / b_{i-1}), \quad i=2,N
+\]
+Then the last pressure is solved for:
+\[
+  P_N = d_N / b_N
+\]
+And finally the remaining pressures are solved by backward substitution:
+\[
+  P_i = d_i - c_i P_{i+1}/b_i, \quad i = N-1, 1
+\]
+
+% subsection solving_1d_one_phase_flow_system (end)
 
 % section band_structure_and_bandwidth_of_equation_systems (end)

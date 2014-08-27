@@ -1,0 +1,9 @@
+% -*- root: ../../ressim.tex -*-
+
+\begin{tikzpicture}
+  % Axes
+  \draw [-latex] (0,0) -- (4,0) node [at end, anchor=west] {$P$};
+  \draw [-latex] (0,0) -- (0,4) node [at end, anchor=east] {$B_g$};
+
+  \draw [] (.5,3.5) edge[in=180,out=-90] (3.5,.5);
+\end{tikzpicture}

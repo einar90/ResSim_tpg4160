@@ -15,6 +15,13 @@
   \item[Implicit:] As applied to discretization of diffusivity equation: time level used in Taylor series approximation is $t+\Delta t$. Generally: equation formulation that requires the system to be solved as a whole (e.g. by Gaussian elimination).
   \item[Stability:] An unconditionally stable discretization will be stable for all step sizes. Discretizations that are conditionally stable will become \emph{unstable} (i.e. give very wrong results) for too large step sizes. In terms of the diffusivity equation: the explicit form is conditionally stable while the implicit formulation is unconditionally stable.
   \item[Upstream weighing:] Descriptive term for the choice of mobility terms in transmissibilities.
+    \[
+      \lambda_{o_{i+\frac{1}{2}}} =
+      \begin{cases}
+        \lambda_{o_{i+1}} & if \; P_{o_{i+1}} \geq P_{o_i} \\
+        \lambda_{o_{i}}   & if \; P_{o_{i+1}} < P_{o_i}
+      \end{cases}
+    \]
   \item[Variable bubble point:] Term that indicates that the discretization of undersaturated flow equation includes the possibility for bubble point to change, such as for the case of gas injection in undersaturated oil.
   \item[Harmonic average:] Averaging method used for permeabilities when flow is in series.
   \item[Transmissibility:] Flow coefficient in discrete equations that when multiplied with pressure difference between grid blocks yield flow rate.
